@@ -1,0 +1,17 @@
+[
+    {
+        "cookie": {
+            "name": "sc_tracking_anonymous_id",
+            "value": "%22639aa7a1-7930-4b34-ad29-0c6ea14f8177%22",
+            "encoding": "RAW",
+            "maxAge": null,
+            "expires": 1847934437000,
+            "domain": ".soundcloud.com",
+            "path": "/",
+            "secure": false,
+            "httpOnly": false,
+            "extensions": {}
+        },
+        "createdAt": 1784862437903
+    }
+]

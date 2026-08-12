@@ -1,0 +1,81 @@
+[
+    {
+        "cookie": {
+            "name": "arl",
+            "value": "43375994f40b6c1637a646fc963d7ebd2f53e86f9064ca9e0d390914e50c24e50b66188e074d4c2fb4c27f258a7196e3c27832ab2b187803139249056181a93d65058c25c28ec83ff837bd7d30258e73154f75a5c874b0653faf902ff8e5d6e4",
+            "encoding": "RAW",
+            "maxAge": 15552000,
+            "expires": null,
+            "domain": ".deezer.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "extensions": {}
+        },
+        "createdAt": 1785966752890
+    },
+    {
+        "cookie": {
+            "name": "sid",
+            "value": "fr50548ee6e20450a9b9721d7995d5858b22297e",
+            "encoding": "RAW",
+            "maxAge": null,
+            "expires": null,
+            "domain": ".deezer.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "extensions": {
+                "SameSite": "None"
+            }
+        },
+        "createdAt": 1785966754565
+    },
+    {
+        "cookie": {
+            "name": "dzr_uniq_id",
+            "value": "dzr_uniq_id_fre47e1b29096843ad4a3c5a3c67b723d34c6665",
+            "encoding": "RAW",
+            "maxAge": 15552000,
+            "expires": 1801518754000,
+            "domain": ".deezer.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": false,
+            "extensions": {
+                "SameSite": "None"
+            }
+        },
+        "createdAt": 1785966754565
+    },
+    {
+        "cookie": {
+            "name": "_abck",
+            "value": "F8AD8E83C85D7ADDD0DF4942185AB3A6~-1~YAAQBMkQAmqc7LmfAQAAnPrp0xBPYLkOKXrTRAXNnZT0lg6saTRGk3tn8Gl92OKO6I2nFJTZvKcEbWh/1LgSDx9yCsTIuQR7ZijYTNWiYWQnw6Lou9FEFfl3l3vTFtj9ZOIfAKkEUtdrl2RNa6Ig5P6+iTHSyE2zK5ATsXcD+8Mib/1tLDoV+XpP3GPROMDpBmhcJhg+tVt59Hb/D2uKG0wKEzT5YffdGQ0Pl/MGXI1U4GnRdX1C9aVIkXCo3MxbTRnKYrx+naE9lY9NDuwfGjVQUujKzpvCq6roiCFSfsHYJ1CQJa7pUpIg8Nr3c/gKbAjnhEaiuKe0ics8BtkM6izPqDfADhsh8kix1FcwNw80nfmMhOxTjCVHY5tn08O8N9UMshuEG4ZQVSh86HWEFijfUCZqhxMn+y5BfMITAD77Zsi98f/bwgtRTTxrzMg81paJvwazSg==~-1~-1~-1~-1~-1",
+            "encoding": "RAW",
+            "maxAge": 31536000,
+            "expires": 1817502754000,
+            "domain": ".deezer.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": false,
+            "extensions": {}
+        },
+        "createdAt": 1785966754565
+    },
+    {
+        "cookie": {
+            "name": "bm_sz",
+            "value": "ECEFF675DD6EA2832C1A0A0D99CE8CE8~YAAQBMkQAmuc7LmfAQAAnPrp0wAIJZC/Jtu2M27aBdsKqrsFAglbNraSsWXmPGslom2Sjdn32ddFH8L9NJMuzJ5kdVaSQh9nrBNxvU1KARSIuFCm74YSoW6gRmoR1owm6gD1mgoFopceINaH/VsYSTvCKJygCcQerPEReruwIku44nXWohNbixT3rPiPzrJ04caC4KoISQZ3dO3uVMXGvxG2DsJkrEAdl2j7RcD9VX3AJqg458nX1+2ZPM03pDm3jF2cxSiLLuq3I5DmdFE18fc6XBhJZi+2gbXAB9vOUdODOIAvQFSJYQol9T90zJHDBHxIemgFRKXFyXlccuNgVDm/Rmot4Wa/6PyTQ0+CPmJ9q0mP3FkE~4470342~3556933",
+            "encoding": "RAW",
+            "maxAge": 14400,
+            "expires": 1785981154000,
+            "domain": ".deezer.com",
+            "path": "/",
+            "secure": false,
+            "httpOnly": false,
+            "extensions": {}
+        },
+        "createdAt": 1785966754565
+    }
+]

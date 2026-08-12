@@ -1,0 +1,24 @@
+{
+    "S29wdXo=": {
+        "b64name": "S29wdXo=",
+        "update_url": "https://github.com/Kopuz-org/kopuz/releases/download/*/kopuz_0.7.0_x86_64.AppImage",
+        "update_url_manager": "GithubUpdater",
+        "update_manager_config": {
+            "allow_prereleases": false,
+            "repo_url": "https://github.com/Kopuz-org/kopuz",
+            "repo_filename": "kopuz_0.7.0_x86_64.AppImage"
+        },
+        "name": "Kopuz"
+    },
+    "U3BvdGlGTEFD": {
+        "b64name": "U3BvdGlGTEFD",
+        "update_url": "https://github.com/spotbye/SpotiFLAC/releases/download/*/SpotiFLAC.AppImage",
+        "update_url_manager": "GithubUpdater",
+        "update_manager_config": {
+            "allow_prereleases": false,
+            "repo_url": "https://github.com/spotbye/SpotiFLAC",
+            "repo_filename": "SpotiFLAC.AppImage "
+        },
+        "name": "SpotiFLAC"
+    }
+}

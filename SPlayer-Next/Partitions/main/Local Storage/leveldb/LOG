@@ -1,0 +1,6 @@
+2026/08/06-20:42:59.963 e724 Reusing MANIFEST /home/and00pium/.config/SPlayer-Next/Partitions/main/Local Storage/leveldb/MANIFEST-000001
+2026/08/06-20:42:59.963 e724 Recovering log #12
+2026/08/06-20:42:59.964 e724 Reusing old log /home/and00pium/.config/SPlayer-Next/Partitions/main/Local Storage/leveldb/000012.log 
+2026/08/06-20:45:00.204 e721 Level-0 table #16: started
+2026/08/06-20:45:00.208 e721 Level-0 table #16: 11713 bytes OK
+2026/08/06-20:45:00.212 e721 Delete type=0 #12

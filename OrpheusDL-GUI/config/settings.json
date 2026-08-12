@@ -1,0 +1,171 @@
+{
+    "global": {
+        "general": {
+            "download_path": "/home/and00pium/Music/MUSIC/basicamente yop/ORPHEUS",
+            "download_quality": "hifi",
+            "search_limit": 25,
+            "disabled_search_platforms": [],
+            "concurrent_downloads": 5,
+            "progress_bar": false
+        },
+        "artist_downloading": {
+            "return_credited_albums": true,
+            "separate_tracks_skip_downloaded": true
+        },
+        "formatting": {
+            "album_format": "{artist}/{name}",
+            "playlist_format": "{name}",
+            "track_filename_format": "{artist} - {name}",
+            "single_full_path_format": "{artist} - {name}",
+            "metadata_separator": ";",
+            "split_metadata": true,
+            "enable_zfill": true,
+            "force_album_format": false,
+            "use_playlist_position": false,
+            "use_album_position": false
+        },
+        "codecs": {
+            "proprietary_codecs": false,
+            "spatial_codecs": true
+        },
+        "module_defaults": {
+            "lyrics": "default",
+            "covers": "default",
+            "credits": "default"
+        },
+        "lyrics": {
+            "embed_lyrics": true,
+            "embed_synced_lyrics": false,
+            "save_synced_lyrics": true
+        },
+        "covers": {
+            "embed_cover": true,
+            "main_compression": "high",
+            "main_resolution": 1400,
+            "save_external": false,
+            "external_format": "png",
+            "external_compression": "low",
+            "external_resolution": 3000,
+            "save_animated_cover": true
+        },
+        "playlist": {
+            "save_m3u": true,
+            "paths_m3u": "absolute",
+            "extended_m3u": true
+        },
+        "advanced": {
+            "advanced_login_system": false,
+            "codec_conversions": {
+                "alac": "flac",
+                "vorbis": "vorbis",
+                "wav": "flac"
+            },
+            "conversion_flags": {
+                "aac": {
+                    "audio_bitrate": "256k"
+                },
+                "flac": {
+                    "compression_level": 5
+                },
+                "mp3": {
+                    "qscale:a": "0"
+                },
+                "opus": {
+                    "b:a": "192k"
+                }
+            },
+            "conversion_keep_original": false,
+            "ffmpeg_path": "/usr/bin/ffmpeg",
+            "cover_variance_threshold": 8,
+            "debug_mode": false,
+            "disable_subscription_checks": false,
+            "enable_undesirable_conversions": false,
+            "ignore_existing_files": false,
+            "ignore_different_artists": true
+        }
+    },
+    "extensions": {},
+    "modules": {
+        "soundcloud": {
+            "web_access_token": ""
+        },
+        "spotify": {
+            "username": "",
+            "download_pause_seconds": 30,
+            "client_id": "",
+            "client_secret": "",
+            "cookies_path": "./config/spotify-cookies.txt"
+        },
+        "amazonmusic": {
+            "wvd_path": "",
+            "force_non_spatial": false,
+            "prefer_spatial_mha1": false,
+            "prefer_spatial_ac4": false,
+            "prefer_aria2c": false,
+            "prefer_removal_of_device_when_revoked": true,
+            "prefer_account_continent": "NA",
+            "trim_track_by_sample_rate": true,
+            "max_track_quality_to_use": "",
+            "quality_format": "{sample_rate}kHz/{bit_depth}bit",
+            "use_own_master_keys": false,
+            "master_keys": {
+                "TIER (KATANA/ROBIN):ISO 3166-1 Alpha-2 Country Code": "64 character key string in hex"
+            },
+            "force_login": false,
+            "email": "",
+            "password": "",
+            "country": ""
+        },
+        "qobuz": {
+            "app_id": "798273057",
+            "app_secret": "05a4851e74ee47fda346f50cfdfc4f09",
+            "quality_format": "{sample_rate}kHz {bit_depth}bit",
+            "username": "",
+            "password": "",
+            "user_id": "13252760",
+            "auth_token": "kT8P0xc8Z3xersWckdPihJPDOmE9LDPU5WyEHaYu3z34tUBK17DG59u1o6Q2_dnqKDGK3hp-S8pLWpZaYxPQpQ",
+            "use_id_token": "false"
+        },
+        "tidal": {
+            "tv_atmos_token": "4N3n6Q1x95LL5K7p",
+            "tv_atmos_secret": "oKOXfJW371cX6xaZ0PyhgGNBdNLlBZd4AKKYougMjik=",
+            "mobile_atmos_hires_token": "km8T1xS355y7dd3H",
+            "mobile_hires_token": "6BDSRdpK9hqEBTgU",
+            "guest_token": "txNoH4kkV41MfH25",
+            "guest_secret": "dQjy0MinCEvxi1O4UmxvxWnDjt4cgHBPw8ll6nYBk98=",
+            "enable_mobile": true,
+            "prefer_ac4": false,
+            "fix_mqa": true,
+            "throttle": true
+        },
+        "beatport": {
+            "username": "",
+            "password": ""
+        },
+        "beatsource": {
+            "username": "",
+            "password": ""
+        },
+        "applemusic": {
+            "cookies_path": "./config/cookies.txt",
+            "language": "en-US",
+            "use_wrapper": false,
+            "wrapper_decrypt_ip": "127.0.0.1:10020",
+            "wrapper_restart_command": ""
+        },
+        "deezer": {
+            "client_id": "447462",
+            "client_secret": "a83bf7f38ad2f137e444727cfc3775cf",
+            "bf_secret": "g4el58wc0zvf9na1",
+            "email": "",
+            "password": "",
+            "arl": "",
+            "use_arl": "True"
+        },
+        "youtube": {
+            "cookies_path": "./config/youtube-cookies.txt",
+            "download_pause_seconds": 5,
+            "download_mode": "sequential"
+        }
+    }
+}

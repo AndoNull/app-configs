@@ -1,0 +1,10 @@
+{
+    "access-token": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiNTFmMjI0YTgtNjYyMS00YTNkLWIxN2UtNGEzMWUzNjRmNjM0IiwiZXhwIjoxOTQyNTQyNjEyLCJpYXQiOjE3ODQ4NjI2MTIsInNjb3BlIjoiVVNFUiJ9.gfnV9bwzd4gAV24_s0nSxfG6dBQEaaE9j8vx4Is1wKs",
+    "refresh-token": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiNTFmMjI0YTgtNjYyMS00YTNkLWIxN2UtNGEzMWUzNjRmNjM0IiwiZXhwIjoxOTQyNTQyNjEyLCJpYXQiOjE3ODQ4NjI2MTIsInNjb3BlIjoiVVNFUiJ9.gfnV9bwzd4gAV24_s0nSxfG6dBQEaaE9j8vx4Is1wKs",
+    "id": "51f224a8-6621-4a3d-b17e-4a31e364f634",
+    "email": "andresmateusj23@gmail.com",
+    "username": "Narciss",
+    "premium": false,
+    "subscription": "1970-01-01T00:00:00Z",
+    "status": "LOGGED_IN"
+}

@@ -1,0 +1,18 @@
+2026/08/03-17:11:32.885 6c34 Reusing MANIFEST /home/and00pium/.config/SPlayer-Next/Partitions/main/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2026/08/03-17:11:32.885 6c34 Recovering log #6
+2026/08/03-17:11:32.894 6c34 Reusing old log /home/and00pium/.config/SPlayer-Next/Partitions/main/IndexedDB/file__0.indexeddb.leveldb/000006.log 
+2026/08/03-17:13:01.347 6c34 Compacting 1@1 + 1@2 files
+2026/08/03-17:13:01.356 6c34 Generated table #9@1: 69 keys, 36693 bytes
+2026/08/03-17:13:01.356 6c34 Compacted 1@1 + 1@2 files => 36693 bytes
+2026/08/03-17:13:01.360 6c34 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/08/03-17:13:01.360 6c34 Delete type=2 #5
+2026/08/03-17:13:01.360 6c34 Delete type=2 #7
+2026/08/03-17:27:21.813 6c48 Level-0 table #11: started
+2026/08/03-17:27:21.833 6c48 Level-0 table #11: 3222299 bytes OK
+2026/08/03-17:27:21.837 6c48 Delete type=0 #6
+2026/08/03-20:29:00.276 6c34 Compacting 1@1 + 1@2 files
+2026/08/03-20:29:00.287 6c34 Generated table #12@1: 69 keys, 52360 bytes
+2026/08/03-20:29:00.287 6c34 Compacted 1@1 + 1@2 files => 52360 bytes
+2026/08/03-20:29:00.290 6c34 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/08/03-20:29:00.291 6c34 Delete type=2 #9
+2026/08/03-20:29:00.291 6c34 Delete type=2 #11

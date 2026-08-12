@@ -1,0 +1,743 @@
+# Lazy import ffmpeg to avoid circular import issues in PyInstaller bundles
+ffmpeg = None
+
+def _get_ffmpeg():
+    """Lazily import ffmpeg module."""
+    global ffmpeg
+    if ffmpeg is None:
+        import ffmpeg as _ffmpeg
+        ffmpeg = _ffmpeg
+    return ffmpeg
+
+import re
+import concurrent.futures
+
+from utils.models import *
+from utils.utils import create_temp_filename, download_to_temp, silentremove
+from .soundcloud_api import SoundCloudWebAPI
+
+
+module_information = ModuleInformation(
+    service_name = 'SoundCloud',
+    module_supported_modes = ModuleModes.download,
+    session_settings = {'web_access_token': ''},
+    netlocation_constant = 'soundcloud',
+    test_url = 'https://soundcloud.com/alanwalker/darkside-feat-tomine-harket-au',
+    url_decoding = ManualEnum.manual,
+    login_behaviour = ManualEnum.manual
+)
+
+
+class ModuleInterface:
+    def __init__(self, module_controller: ModuleController):
+        self.exception = module_controller.module_error
+        settings = module_controller.module_settings
+        web_access_token = settings.get('web_access_token', '')
+        
+        self.websession = SoundCloudWebAPI(web_access_token, module_controller.module_error)
+        self.module_controller = module_controller
+        
+        # Diagnostic: Check account status
+        if web_access_token:
+            try:
+                me = self.websession.get_me()
+                username = me.get('username', 'Unknown')
+                # Exhaustive check for Go+ status
+                # Diagnostic revealed 'consumer_subscriptions' and 'consumer_subscription' keys
+                subscriptions = me.get('consumer_subscriptions') or me.get('subscriptions') or []
+                subscription = me.get('consumer_subscription')
+                quota = me.get('quota', {})
+                
+                if subscriptions:
+                    self.plan = subscriptions[0].get('product', {}).get('id', 'Premium')
+                elif subscription:
+                    self.plan = subscription.get('product', {}).get('id', 'Premium')
+                elif quota.get('high_tier') or quota.get('top_tier'):
+                    self.plan = 'high_tier'
+                elif me.get('plan') and str(me.get('plan')).lower() != 'free':
+                    self.plan = me.get('plan')
+                else:
+                    self.plan = 'Free'
+                
+                if module_controller.orpheus_options.debug_mode:
+                    module_controller.printer_controller.oprint(f"[SoundCloud] Logged in as {username} ({self.plan})")
+            except Exception as e:
+                self.plan = 'Unknown'
+                if module_controller.orpheus_options.debug_mode:
+                    module_controller.printer_controller.oprint(f"[SoundCloud] Authentication check failed: {e}")
+        else:
+            self.plan = 'Free'
+
+        self.artists_split = lambda artists_string: artists_string.replace(' & ', ', ').replace(' and ', ', ').replace(' x ', ', ').split(', ')
+        self.artwork_url_format = lambda artwork_url: artwork_url.replace('-large', '-original') if artwork_url else None
+    
+
+    @staticmethod
+    def get_release_year(data):
+        release_date = ''
+        if 'release_date' in data and data['release_date']:
+            release_date = data['release_date']
+        elif 'display_date' in data and data['display_date']:
+            release_date = data['display_date']
+        elif 'created_at' in data and data['created_at']:
+            release_date = data['created_at']
+        return int(release_date.split('-')[0])
+
+
+    def custom_url_parse(self, link):
+        types_ = {'user': DownloadTypeEnum.artist, 'track': DownloadTypeEnum.track, 'playlist': DownloadTypeEnum.playlist}
+        result = self.websession.resolve_url(link)
+        type_ = types_[result['kind']] if result['kind'] != 'playlist' or (result['kind'] == 'playlist' and not result['is_album']) else DownloadTypeEnum.album
+        id_ = result['id']
+        
+        return MediaIdentification(
+            media_type = type_,
+            media_id = id_,
+            extra_kwargs = {'data': {id_: result}}
+        )
+
+
+    def search(self, query_type: DownloadTypeEnum, query, tags: Tags = None, limit = 10):
+        if query_type is DownloadTypeEnum.artist:
+            qt = 'users'
+        elif query_type is DownloadTypeEnum.playlist:
+            qt = 'playlists_without_albums'
+        elif query_type is DownloadTypeEnum.album:
+            qt = 'albums'
+        elif query_type is DownloadTypeEnum.track:
+            qt = 'tracks'
+        else:
+            raise self.exception(f'Query type {query_type.name} is unsupported')
+        results = self.websession.search(qt, query, limit)
+        
+        search_results = []
+        for result in results['collection']:
+            # Get cover/artwork URL
+            image_url = None
+            if qt == 'users':
+                # For artists, use avatar
+                image_url = result.get('avatar_url')
+            elif qt in ('playlists_without_albums', 'albums'):
+                # For playlists/albums, try multiple sources:
+                # 1. Playlist's own artwork_url
+                # 2. calculated_artwork_url (auto-generated from tracks)
+                # 3. First track's artwork (if tracks are included in search results)
+                # Note: We DON'T fall back to user avatar for playlists - that shows a generic person icon
+                image_url = result.get('artwork_url')
+                if not image_url:
+                    image_url = result.get('calculated_artwork_url')
+                if not image_url:
+                    # Try to get artwork from first track
+                    tracks = result.get('tracks', [])
+                    if tracks and len(tracks) > 0:
+                        first_track = tracks[0]
+                        image_url = first_track.get('artwork_url')
+                # Skip user avatar fallback for playlists - it's just a generic person icon
+            else:
+                # For tracks, use artwork or fallback to user avatar
+                image_url = result.get('artwork_url') or (result.get('user', {}).get('avatar_url') if result.get('user') else None)
+            
+            # Skip default/placeholder avatar URLs (they show generic person icons)
+            if image_url and 'default_avatar' in image_url:
+                image_url = None
+            
+            # Convert to smaller size for thumbnails (use -t200x200 for search results)
+            if image_url:
+                image_url = image_url.replace('-large', '-t200x200')
+            
+            # Preview URL for tracks - leave as None, will be lazy-loaded on click
+            # SoundCloud requires resolving stream URLs which needs API authentication
+            preview_url = None
+            # Note: Track is streamable if result.get('streamable') is True
+            # The actual stream URL will be fetched on-demand via lazy loading
+            
+            # Get duration for tracks and albums/playlists
+            duration = None
+            if qt == 'tracks' and result.get('duration'):
+                duration = result['duration'] // 1000  # Convert ms to seconds
+            elif qt in ('albums', 'playlists_without_albums') and result.get('duration'):
+                duration = result['duration'] // 1000
+            
+            # Track count in additional for albums/playlists
+            additional = None
+            if qt in ('albums', 'playlists_without_albums'):
+                track_count = result.get('track_count') or len(result.get('tracks', []))
+                if qt == 'playlists_without_albums' and not track_count:
+                    continue
+                if track_count:
+                    additional = [f"1 track" if track_count == 1 else f"{track_count} tracks"]
+
+            # Get year
+            year = None
+            if result.get('release_date'):
+                year = result['release_date'].split('-')[0]
+            elif result.get('display_date'):
+                year = result['display_date'].split('-')[0]
+            elif result.get('created_at'):
+                year = result['created_at'].split('-')[0]
+            
+            # Extract genre for tracks
+            if qt == 'tracks' and result.get('genre'):
+                additional = [result['genre']]
+
+            search_results.append(SearchResult(
+                result_id = result['id'],
+                name = result['title'] if qt != 'users' else result['username'],
+                artists = self.artists_split(result['user']['username']) if qt != 'users' else None,
+                year = year,
+                duration = duration,
+                additional = additional,
+                image_url = image_url,
+                preview_url = preview_url,
+                extra_kwargs = {'data': {result['id'] : result}}
+            ))
+        
+        # Batch fetch missing genres for tracks using ThreadPoolExecutor
+        if qt == 'tracks':
+            missing_genre_tracks = [r for r in search_results if not r.additional]
+            if missing_genre_tracks:
+                track_ids = [str(r.result_id) for r in missing_genre_tracks]
+                track_genres = {}
+                
+                def _fetch_sc_track_genre(tid):
+                    try:
+                        t_data = self.websession._get(f'tracks/{tid}')
+                        return tid, t_data.get('genre')
+                    except:
+                        return tid, None
+
+                with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+                    for tid, genre in executor.map(_fetch_sc_track_genre, track_ids):
+                        if genre:
+                            track_genres[str(tid)] = genre
+                
+                for r in missing_genre_tracks:
+                    tid_str = str(r.result_id)
+                    if tid_str in track_genres:
+                        r.additional = [track_genres[tid_str]]
+
+        # Batch fetch missing genres and confirmed track counts for albums/playlists using ThreadPoolExecutor
+        if qt in ('albums', 'playlists_without_albums'):
+            missing_meta_results = [r for r in search_results]
+            if missing_meta_results:
+                ids = [str(r.result_id) for r in missing_meta_results]
+                item_meta = {}
+                
+                def _fetch_sc_playlist_meta(pid):
+                    try:
+                        p_data = self.websession._get(f'playlists/{pid}')
+                        if p_data:
+                            track_count = p_data.get('track_count') or len(p_data.get('tracks', []))
+                            genre = p_data.get('genre')
+                            return pid, {'track_count': track_count, 'genre': genre}
+                    except: pass
+                    return pid, None
+
+                with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+                    for pid, meta in executor.map(_fetch_sc_playlist_meta, ids):
+                        if meta: item_meta[str(pid)] = meta
+                
+                for r in missing_meta_results:
+                    pid_str = str(r.result_id)
+                    if pid_str in item_meta:
+                        meta = item_meta[pid_str]
+                        additional = []
+                        if meta['track_count']:
+                            additional.append(f"1 track" if meta['track_count'] == 1 else f"{meta['track_count']} tracks")
+                        if meta['genre']:
+                            additional.append(meta['genre'])
+                        r.additional = additional
+
+        return search_results
+
+
+    def get_track_download(self, track_url, download_url, codec, track_authorization, **kwargs):
+        # Track not available for streaming/download (e.g. geo-restricted or not offered in your region)
+        if not track_url and not download_url:
+            raise self.exception("Track is not available for download or streaming. It may be restricted in your region or not offered on SoundCloud.")
+        explicit_is_hls_from_kwargs = kwargs.get('is_hls')
+        determined_is_hls = False
+
+        if explicit_is_hls_from_kwargs is True:
+            determined_is_hls = True
+        elif isinstance(track_url, str) and \
+             ('/hls' in track_url.lower() or \
+              '.m3u8' in track_url.lower() or \
+              'ctr-encrypted-hls' in track_url.lower()):
+            determined_is_hls = True
+        
+        is_hls = determined_is_hls
+
+        access_token = self.websession.access_token
+
+        if is_hls:
+            if not track_url:
+                raise self.exception("HLS stream URL not found in get_track_download (is_hls path)")
+            
+            m3u8_url_resolved = None
+            try:
+                m3u8_url_resolved = self.websession.get_track_stream_link(track_url, track_authorization)
+                if not m3u8_url_resolved or not isinstance(m3u8_url_resolved, str) or not m3u8_url_resolved.startswith('http'):
+                    raise self.exception(f"HLS_INVALID_M3U8_URL: Resolved M3U8 URL is invalid: {m3u8_url_resolved}")
+            except Exception as e:
+                raise self.exception(f"HLS_M3U8_RESOLUTION_ERROR: Failed to resolve M3U8 stream link: {e}")
+
+            extension = codec_data[codec].container.name if codec in codec_data else 'm4a'
+            output_location = create_temp_filename() + '.' + extension
+            
+            ffmpeg_input_options = {
+                # 'f': 'hls', # Usually auto-detected, can be omitted
+                'hide_banner': None,
+                'y': None, 
+                'headers': f'Authorization: OAuth {access_token}\r\n',
+                'protocol_whitelist': 'http,https,tls,tcp,file,crypto'
+            }
+            ffmpeg_output_options = {
+                'acodec': 'copy',
+                'loglevel': 'error' 
+            }
+
+            try:
+                _ffmpeg = _get_ffmpeg()
+                process = _ffmpeg.input(m3u8_url_resolved, **ffmpeg_input_options).output(output_location, **ffmpeg_output_options).run_async(pipe_stdout=True, pipe_stderr=True)
+                out, err = process.communicate()
+
+                if process.returncode != 0:
+                    silentremove(output_location)
+                    stderr_output = err.decode('utf8', errors='ignore') if err else "No stderr from process"
+                    raise self.exception(f"HLS_DOWNLOAD_FFMPEG_ERROR: FFmpeg process failed (RC: {process.returncode}). Stderr: {stderr_output}")
+
+            except _get_ffmpeg().Error as e:
+                silentremove(output_location)
+                stderr_log = e.stderr.decode('utf8', errors='ignore') if hasattr(e, 'stderr') and e.stderr else "No direct stderr from ffmpeg.Error object"
+                raise self.exception(f"HLS_FFMPEG_LIB_ERROR: {stderr_log}. Original error: {e}")
+            except Exception as e:
+                silentremove(output_location)
+                raise self.exception(f"HLS_UNEXPECTED_ERROR_IN_TRY_BLOCK: {e}")
+            
+            return TrackDownloadInfo(
+                download_type = DownloadEnum.TEMP_FILE_PATH,
+                temp_file_path = output_location
+            )
+        
+        auth_header_non_hls = {"Authorization": f"OAuth {access_token}"}
+        if not download_url: 
+            resolved_stream_url = self.websession.get_track_stream_link(track_url, track_authorization)
+        else:
+            resolved_stream_url = download_url
+
+        if codec == CodecEnum.AAC:
+            extension = codec_data[codec].container.name
+            temp_location = download_to_temp(resolved_stream_url, auth_header_non_hls, extension)
+            output_location = create_temp_filename() + '.' + extension
+            try:
+                _get_ffmpeg().input(temp_location).output(output_location, acodec='copy', loglevel='error').run()
+                silentremove(temp_location)
+            except Exception as e:
+                silentremove(output_location)
+                print(f'FFmpeg is not installed or working properly for AAC remux! Error: {e}. Using fallback, may have errors.')
+                output_location = temp_location
+
+            return TrackDownloadInfo(
+                download_type = DownloadEnum.TEMP_FILE_PATH,
+                temp_file_path = output_location
+            )
+        else:
+            return TrackDownloadInfo(
+                download_type = DownloadEnum.URL,
+                file_url = resolved_stream_url,
+                file_url_headers = auth_header_non_hls
+            )
+
+
+    def _parse_aac_bitrate_from_preset(self, preset_string):
+        # preset_string is like "aac_256k" or "aac_1_0"
+        if not isinstance(preset_string, str):
+            return 0
+        
+        # Handle aac_XXXk format (e.g., aac_256k)
+        match_kbps = re.search(r'aac_(\d+)k', preset_string)
+        if match_kbps:
+            try:
+                return int(match_kbps.group(1))
+            except ValueError:
+                return 0 # Should not happen if regex matches
+
+        # Handle other aac_ formats like aac_1_0, assign a default quality
+        if preset_string in ['aac_1_0', 'aac_hq']:
+            return 256
+        if preset_string.startswith('aac_'):            
+            return 64 
+
+        return 0 # Default if no clear bitrate is found or format is unexpected
+
+    def _parse_progressive_bitrate_from_preset(self, preset_string, stream_codec_name):
+        if not isinstance(preset_string, str):
+            return 0
+
+        # Specific SoundCloud Opus presets (these are descriptive, not direct bitrates)
+        if stream_codec_name == 'OPUS':
+            if 'abr_hq' in preset_string: return 128 # Approximate for high quality Opus
+            if 'abr_sq' in preset_string: return 96  # Approximate for standard quality Opus
+        
+        # Generic pattern for mp3_XXXk or opus_XXXk or aac_XXXk
+        match_kbps = re.search(r'(\d+)k', preset_string)
+        if match_kbps:
+            try: return int(match_kbps.group(1))
+            except ValueError: pass
+
+        # Standard generic quality placeholders that don't directly indicate bitrate
+        if preset_string in ['mp3_0_0', 'mp3_0_1', 'mp3_1_0']:
+            return 128
+        if preset_string == 'opus_0_0':
+            return 64
+
+        # Generic pattern for mp3_XXX or opus_XXX or aac_XXX (where XXX is bitrate)
+        parts = preset_string.split('_')
+        if len(parts) > 1 and parts[1].isdigit():
+            try: return int(parts[1])
+            except ValueError: pass
+        
+        # Fallback for Opus quality levels like opus_X_Y (0-10 for X in opusenc)
+        # Scale X to an approximate bitrate range (e.g. X*12 might map 0-10 to 0-120kbps range)
+        if stream_codec_name == 'OPUS' and len(parts) > 1 and parts[0] == 'opus' and parts[1].isdigit():
+            try: 
+                quality_level = int(parts[1])
+                # Simple scaling: maps 0-10 to something in a typical bitrate range                
+                return quality_level * 12 + 32 # e.g. 0->32, 5->92, 8->128, 10->152
+            except ValueError: pass
+
+        return 0 # Default
+
+    def get_track_info(self, track_id, quality_tier: QualityEnum, codec_options: CodecOptions, data={}):
+        track_data = data.get(track_id) or data.get(str(track_id)) or data.get(int(track_id) if str(track_id).isdigit() else track_id)
+        # If we have no data, OR the data is incomplete (missing 'media' or 'transcodings'), fetch full info.
+        # Playlist/Album tracks often come as stubs without the 'media' object or with empty transcodings.
+        if not track_data or not track_data.get('media', {}).get('transcodings'):
+            track_data = self.websession._get('tracks/' + str(track_id))
+        metadata = track_data.get('publisher_metadata') or {}
+
+        file_url, download_url, final_codec, error = None, None, CodecEnum.AAC, None
+        final_is_hls_stream = False
+
+        # If the policy is BLOCK or SNIP, we only error out if no transcodings are available.
+        # Check media['transcodings'] directly as 'streamable' might be False in metadata for Go+ tracks.
+        if track_data.get('policy') in ('BLOCK', 'SNIP') and not track_data.get('media', {}).get('transcodings'):
+            if not self.websession.access_token:
+                error = "This is a SoundCloud Go+ premium track. Please configure a valid access token in Settings to stream or download it."
+            elif 'high' in str(self.plan).lower() or 'go+' in str(self.plan).lower() or 'premium' in str(self.plan).lower():
+                error = "This track is currently restricted in your region and cannot be streamed or downloaded even with a Go+ subscription."
+            else:
+                error = "This is a SoundCloud Go+ premium track. Your account requires a Go+ subscription to stream or download it."
+        elif track_data.get('downloadable') and track_data.get('has_downloads_left'):
+            download_url = self.websession.get_track_download(track_id)
+            content_type_header = self.websession.s.head(download_url).headers.get('Content-Type', '')
+            codec_str_part = content_type_header.split('/')[-1]
+            codec_str = codec_str_part.replace('mpeg', 'mp3').replace('ogg', 'vorbis').upper()
+            if codec_str in CodecEnum.__members__:
+                final_codec = CodecEnum[codec_str]
+            else:
+                error = f"Unknown codec from direct download Content-Type: {content_type_header}"
+                final_codec = CodecEnum.AAC # Default
+            final_is_hls_stream = False
+            # For direct downloads, file_url is not used; download_url is primary.            
+            file_url = download_url 
+
+        elif track_data['streamable']:
+            if track_data['media']['transcodings']:
+                available_streams = []
+                # Codec preference for tie-breaking (higher is better)
+                # Prefer HLS slightly if quality is identical
+                codec_preference = {
+                    (CodecEnum.AAC, True): 5,  # HLS AAC
+                    (CodecEnum.OPUS, True): 4, # HLS Opus
+                    (CodecEnum.OPUS, False): 3,# Progressive Opus
+                    (CodecEnum.AAC, False): 2, # Progressive AAC
+                    (CodecEnum.MP3, False): 1, # Progressive MP3
+                    (CodecEnum.MP3, True): 0,  # HLS MP3 (less common, lower preference)
+                }
+
+                for i in track_data['media']['transcodings']:
+                    protocol = i['format']['protocol']
+                    preset_string = i['preset']
+                    preset_parts = preset_string.split('_')
+                    stream_codec_name = preset_parts[0].upper() if preset_parts else ''
+
+                    if stream_codec_name in CodecEnum.__members__:
+                        current_codec_enum = CodecEnum[stream_codec_name]
+                        
+                        # Determine if it's an HLS stream more robustly
+                        stream_transcoding_url_for_check = i['url']
+                        is_hls_by_protocol = (protocol == 'hls')
+                        is_hls_by_url = (isinstance(stream_transcoding_url_for_check, str) and \
+                                         ('/hls' in stream_transcoding_url_for_check.lower() or \
+                                          '.m3u8' in stream_transcoding_url_for_check.lower() or \
+                                          'ctr-encrypted-hls' in stream_transcoding_url_for_check.lower() or \
+                                          'cbc-encrypted-hls' in stream_transcoding_url_for_check.lower()))
+                        is_hls = is_hls_by_protocol or is_hls_by_url
+                        
+                        # Determine if it's an ENCRYPTED HLS stream
+                        is_encrypted_hls = False
+                        if is_hls and isinstance(stream_transcoding_url_for_check, str) and \
+                           ('ctr-encrypted-hls' in stream_transcoding_url_for_check.lower() or \
+                            'cbc-encrypted-hls' in stream_transcoding_url_for_check.lower()):
+                            is_encrypted_hls = True
+                        # End of new HLS determination logic
+                        
+                        quality_score = 0 # Renamed from 'quality'
+
+                        if is_encrypted_hls:
+                            quality_score = -100 # Heavily penalize encrypted streams
+                        elif is_hls:
+                            if current_codec_enum == CodecEnum.AAC:
+                                quality_score = self._parse_aac_bitrate_from_preset(preset_string)
+                            # Add parsing for HLS Opus/MP3 bitrates if their presets have them
+                            # For now, relying on generic progressive parser or default 0 for other HLS
+                            else: 
+                                quality_score = self._parse_progressive_bitrate_from_preset(preset_string, stream_codec_name)
+                        else: # Progressive
+                            quality_score = self._parse_progressive_bitrate_from_preset(preset_string, stream_codec_name)
+                        
+                        if i['url'] and quality_score >= 0: # Only consider streams with a URL and non-negative quality
+                            pref_score = codec_preference.get((current_codec_enum, is_hls), 0)
+                            available_streams.append({
+                                'url': i['url'],
+                                'codec': current_codec_enum,
+                                'is_hls': is_hls,
+                                'is_encrypted': is_encrypted_hls,
+                                'quality': quality_score,
+                                'preference': pref_score,
+                                'preset': preset_string
+                            })
+                
+                if available_streams:
+                    # Sort: 1. quality (desc), 2. preference score (desc)
+                    available_streams.sort(key=lambda x: (x['quality'], x['preference']), reverse=True)
+                    
+                    best_stream = available_streams[0]
+                    # Ensure the best stream has a positive quality, otherwise it might be an undesired low-quality default
+                    # Always set these from the best stream found
+                    file_url = best_stream['url']
+                    final_codec = best_stream['codec']
+                    final_is_hls_stream = best_stream['is_hls']
+                    final_is_encrypted_hls = best_stream.get('is_encrypted', False)
+                    
+                    if final_is_encrypted_hls:
+                        error = "Track is available as a DRM-protected HLS stream, which can be downloaded, but aren't playable without decryption key. Skipping."
+                    elif best_stream['quality'] > 0:
+                        error = None # Clear previous errors if a good stream is found
+                    else:
+                        # This case means the best found stream had quality 0 or less (e.g. only failed parsing or was encrypted)
+                        if not final_is_encrypted_hls: # Don't overwrite specific DRM error
+                            error = f"Best stream found (preset: {best_stream['preset']}) has zero or negative quality, or codec could not be parsed."
+                else:
+                    error = "No stream transcodings found or none were usable."
+            else:
+                error = "No stream transcodings available for this track."
+        else:
+            error = "Track is not available for streaming or download (may be restricted in your region or not offered on SoundCloud)."
+        
+        duration_sec = None
+        if track_data.get('duration') is not None:
+            try:
+                duration_sec = int(track_data['duration']) // 1000  # SoundCloud duration is in ms
+            except (TypeError, ValueError):
+                pass
+        artists_list = self.artists_split(metadata['artist'] if metadata.get('artist') else track_data['user']['username'])
+        
+        return TrackInfo(
+            id = str(track_id),
+            name = track_data['title'].split(' - ')[1] if ' - ' in track_data['title'] else track_data['title'],
+            album = metadata.get('album_title'),
+            album_id = '',
+            artists = artists_list,
+            artist_id = '' if 'artist' in metadata else track_data['user']['permalink'],
+            download_extra_kwargs = {
+                'track_url': file_url, 
+                'download_url': download_url, 
+                'codec': final_codec, 
+                'track_authorization': track_data.get('track_authorization', ''),
+                'is_hls': final_is_hls_stream,
+                'track_data': track_data
+            },
+            codec = final_codec,
+            sample_rate = 48 if final_codec == CodecEnum.AAC else 44.1,
+            release_year = self.get_release_year(track_data),
+            duration = duration_sec,
+            cover_url = self.artwork_url_format(track_data.get('artwork_url') or track_data['user']['avatar_url']),
+            explicit = metadata.get('explicit'),
+            error = error,
+            tags =  Tags(
+                album_artist = artists_list[0] if artists_list else None,
+                track_number = int(list(data.keys()).index(track_id)) + 1 if data.get(track_id) else 1,
+                release_date = track_data['created_at'].split('T')[0] if track_data.get("created_at") else None,
+                genres = track_data['genre'].split('/') if track_data.get('genre') else None,
+                composer = metadata.get('writer_composer'),
+                copyright = metadata.get('p_line'),
+                upc = metadata.get('upc_or_ean'),
+                isrc = metadata.get('isrc'),
+                track_url = track_data.get('permalink_url')
+            )
+        )
+    
+
+    def get_album_info(self, album_id, data: dict) -> AlbumInfo | None:
+        if not album_id:
+            if self.module_controller.orpheus_options.debug_mode:
+                self.module_controller.printer_controller.oprint(f"[SoundCloud] get_album_info: Called with an empty or None album_id.")
+            return None
+        
+        # Attempt to get data from the provided dict first
+        playlist_data = None
+        if isinstance(data, dict):
+            # Check if data is already the album record (e.g. from artist expansion)
+            if str(data.get('id')) == str(album_id):
+                playlist_data = data
+            else:
+                playlist_data = data.get(album_id) or data.get(str(album_id)) or (data.get(int(album_id) if str(album_id).isdigit() else None))
+        
+        # Fallback: Fetch full playlist info if data is missing or incomplete (no tracks)
+        if not playlist_data or not playlist_data.get('tracks') or not isinstance(playlist_data['tracks'], list) or (len(playlist_data['tracks']) > 0 and 'streamable' not in playlist_data['tracks'][0]):
+            try:
+                playlist_data = self.websession._get(f'playlists/{album_id}')
+            except Exception as e:
+                if self.module_controller.orpheus_options.debug_mode:
+                    self.module_controller.printer_controller.oprint(f"[SoundCloud] Error fetching album {album_id}: {e}")
+                return None
+
+        if not playlist_data:
+            return None
+
+        playlist_tracks = self.websession.get_tracks_from_tracklist(playlist_data['tracks']) if playlist_data.get('tracks') else {}
+        return AlbumInfo(
+            name = playlist_data.get('title', 'Unknown Album'),
+            artist = playlist_data.get('user', {}).get('username') or 'Unknown Artist',
+            artist_id = playlist_data.get('user', {}).get('permalink'),
+            cover_url = self.artwork_url_format(playlist_data.get('artwork_url') or playlist_data.get('user', {}).get('avatar_url')),
+            release_year = self.get_release_year(playlist_data),
+            tracks = list(playlist_tracks.keys()),
+            expected_track_count=int(playlist_data.get('track_count')) if playlist_data.get('track_count') is not None else None,
+            track_extra_kwargs = {'data': playlist_tracks}
+        )
+    
+
+    def get_playlist_info(self, playlist_id, data):
+        playlist_data = data.get(playlist_id) or data.get(int(playlist_id) if str(playlist_id).isdigit() else playlist_id)
+        if not playlist_data:
+            raise KeyError(f"Playlist ID {playlist_id} not found in provided data")
+        playlist_tracks = self.websession.get_tracks_from_tracklist(playlist_data['tracks'])
+        return PlaylistInfo(
+            name = playlist_data['title'],
+            creator = playlist_data['user']['username'],
+            creator_id = playlist_data['user']['permalink'],
+            cover_url = self.artwork_url_format(playlist_data['artwork_url']),
+            duration = playlist_data.get('duration') // 1000 if playlist_data.get('duration') else None,
+            release_year = self.get_release_year(playlist_data),
+            tracks = list(playlist_tracks.keys()),
+            track_extra_kwargs = {'data': playlist_tracks}
+        )
+
+
+    def get_artist_info(self, artist_id, get_credited_albums, data):
+        # Get name and permalink from data or by fetching users/{id}
+        name = ''
+        permalink = None
+        try:
+            ud = (data or {}).get(artist_id) or (data or {}).get(str(artist_id)) or (data or {}).get(int(artist_id) if str(artist_id).isdigit() else None)
+            if isinstance(ud, dict):
+                name = ud.get('username', '') or name
+                permalink = ud.get('permalink')
+        except (TypeError, KeyError, AttributeError):
+            pass
+        if not name or not permalink:
+            try:
+                user_data = self.websession._get(f'users/{artist_id}')
+                name = name or user_data.get('username', 'Artist') or 'Artist'
+                permalink = permalink or user_data.get('permalink')
+            except Exception:
+                name = name or 'Artist'
+        # Prefer numeric artist_id from search so we load the exact user
+        album_data, track_data = self.websession.get_user_albums_tracks(artist_id)
+        # Only retry with permalink when we didn't use numeric id (e.g. artist_id was permalink); avoids duplicate 403 when uid is same
+        if not album_data and not track_data and permalink and str(permalink) != str(artist_id) and not (str(artist_id).isdigit()):
+            album_data, track_data = self.websession.get_user_albums_tracks(permalink)
+        albums_out = []
+        for aid, a in album_data.items():
+            title = a.get('title')
+            if title:
+                release_date = a.get('release_date') or a.get('display_date') or a.get('created_at') or ''
+                release_year = release_date.split('-')[0] if release_date else None
+                
+                # Extract track count and genre
+                track_count = a.get('track_count') or len(a.get('tracks', []))
+                genre = a.get('genre')
+                
+                additional = []
+                if track_count:
+                    additional.append(f"1 track" if track_count == 1 else f"{track_count} tracks")
+                if genre:
+                    additional.append(genre)
+
+                # Get artwork URL (small thumbnail for artist expansion)
+                cover_url = ''
+                pic = a.get('artwork_url') or (a.get('user', {}).get('avatar_url') if a.get('user') else None)
+                if pic:
+                    cover_url = pic.replace('-large', '-t50x50') # Smallest size for list expansion
+
+                albums_out.append({
+                    'id': str(aid),
+                    'name': title,
+                    'artist': a.get('user', {}).get('username') or name,
+                    'duration': a.get('duration'),
+                    'release_year': release_year,
+                    'cover_url': cover_url,
+                    'additional': additional
+                })
+
+        # Batch fetch missing durations/years/track counts/genres for albums using ThreadPoolExecutor
+        missing_metadata = [idx for idx, t in enumerate(albums_out) if not t.get('additional') or not t.get('release_year')]
+        if missing_metadata:
+            a_meta = {}
+            def _fetch_sc_album_meta(aid):
+                try:
+                    a_data = self.websession._get(f'playlists/{aid}')
+                    if a_data:
+                        track_count = a_data.get('track_count') or len(a_data.get('tracks', []))
+                        genre = a_data.get('genre')
+                        additional = []
+                        if track_count:
+                            additional.append(f"1 track" if track_count == 1 else f"{track_count} tracks")
+                        if genre:
+                            additional.append(genre)
+                            
+                        return aid, {
+                            'additional': additional,
+                            'duration': a_data.get('duration'),
+                            'year': (a_data.get('release_date') or a_data.get('display_date') or a_data.get('created_at', '')).split('-')[0] or None
+                        }
+                except: pass
+                return aid, None
+
+            with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+                fetch_ids = [albums_out[idx]['id'] for idx in missing_metadata]
+                for aid, meta in executor.map(_fetch_sc_album_meta, fetch_ids):
+                    if meta: a_meta[str(aid)] = meta
+            
+            for idx in missing_metadata:
+                t = albums_out[idx]
+                aid = str(t['id'])
+                if aid in a_meta:
+                    if not t.get('additional') and a_meta[aid]['additional']:
+                        t['additional'] = a_meta[aid]['additional']
+                    if not t.get('duration') and a_meta[aid].get('duration'):
+                        t['duration'] = a_meta[aid]['duration']
+                    if not t.get('release_year'):
+                        t['release_year'] = a_meta[aid]['year']
+
+        return ArtistInfo(
+            name = name,
+            albums = albums_out if albums_out else list(album_data.keys()),
+            album_extra_kwargs = {'data': album_data},
+            tracks = list(track_data.keys()),
+            track_extra_kwargs = {'data': track_data}
+        )

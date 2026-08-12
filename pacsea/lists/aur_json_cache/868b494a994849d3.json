@@ -1,0 +1,1179 @@
+{
+  "resultcount": 24,
+  "results": [
+    {
+      "Conflicts": [
+        "bpftune"
+      ],
+      "Depends": [
+        "libbpf",
+        "libnl",
+        "libcap"
+      ],
+      "Description": "BPF/tracing tools for auto-tuning Linux",
+      "FirstSubmitted": 1688199064,
+      "ID": 1612689,
+      "Keywords": [],
+      "LastModified": 1734650016,
+      "License": [
+        "GPLv2 WITH Linux-syscall-note"
+      ],
+      "Maintainer": "ContronThePanda",
+      "MakeDepends": [
+        "git",
+        "bpf",
+        "clang",
+        "llvm",
+        "llvm-libs",
+        "python-docutils"
+      ],
+      "Name": "bpftune-git",
+      "NumVotes": 7,
+      "OutOfDate": null,
+      "PackageBase": "bpftune-git",
+      "PackageBaseID": 195225,
+      "Popularity": 0.055885,
+      "Provides": [
+        "bpftune"
+      ],
+      "Submitter": "KriK",
+      "URL": "https://github.com/oracle/bpftune",
+      "URLPath": "/cgit/aur.git/snapshot/bpftune-git.tar.gz",
+      "Version": "r598.688b122-1"
+    },
+    {
+      "CheckDepends": [
+        "appstream",
+        "desktop-file-utils"
+      ],
+      "Depends": [
+        "7zip",
+        "binutils",
+        "dconf",
+        "dwarfs",
+        "fuse2",
+        "gdk-pixbuf2",
+        "glibc",
+        "glib2",
+        "gtk4",
+        "hicolor-icon-theme",
+        "libadwaita",
+        "squashfs-tools",
+        "pango",
+        "python",
+        "python-dbus",
+        "python-desktop-entry-lib",
+        "python-ftputil",
+        "python-gobject",
+        "python-pyxdg",
+        "python-requests",
+        "zlib"
+      ],
+      "Description": "Manage AppImages with ease",
+      "FirstSubmitted": 1715017780,
+      "ID": 2038532,
+      "Keywords": [],
+      "LastModified": 1776165074,
+      "License": [
+        "GPL-3.0-or-later"
+      ],
+      "Maintainer": "TuxDeluxe",
+      "MakeDepends": [
+        "gettext",
+        "meson"
+      ],
+      "Name": "gearlever",
+      "NumVotes": 10,
+      "OptDepends": [
+        "libxml2-legacy"
+      ],
+      "OutOfDate": 1776483431,
+      "PackageBase": "gearlever",
+      "PackageBaseID": 206000,
+      "Popularity": 0.686086,
+      "Submitter": "TuxDeluxe",
+      "URL": "https://gearlever.mijorus.it/",
+      "URLPath": "/cgit/aur.git/snapshot/gearlever.tar.gz",
+      "Version": "4.4.10-1"
+    },
+    {
+      "Conflicts": [
+        "helium-browser-beta-bin"
+      ],
+      "Depends": [
+        "alsa-lib",
+        "dbus",
+        "gtk3",
+        "hicolor-icon-theme",
+        "libcups",
+        "libpulse",
+        "libva",
+        "libxss",
+        "nss",
+        "ttf-liberation",
+        "udev",
+        "xdg-utils"
+      ],
+      "Description": "Private, fast, and honest web browser based on Chromium (Latest/Stable)",
+      "FirstSubmitted": 1757851399,
+      "ID": 2066515,
+      "Keywords": [],
+      "LastModified": 1778055100,
+      "License": [
+        "GPL-3.0-only AND BSD-3-Clause"
+      ],
+      "Maintainer": "playleft",
+      "Name": "helium-browser-bin",
+      "NumVotes": 75,
+      "OptDepends": [
+        "pipewire",
+        "kdialog",
+        "org.freedesktop.secrets",
+        "kwallet",
+        "qt5-base",
+        "upower"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "helium-browser-bin",
+      "PackageBaseID": 222352,
+      "Popularity": 17.842404,
+      "Provides": [
+        "helium-browser-beta-bin=0.12.1.1"
+      ],
+      "Submitter": "playleft",
+      "URL": "https://github.com/imputnet/helium-linux",
+      "URLPath": "/cgit/aur.git/snapshot/helium-browser-bin.tar.gz",
+      "Version": "0.12.1.1-1"
+    },
+    {
+      "Depends": [
+        "axel",
+        "bc",
+        "coreutils",
+        "cliphist",
+        "cmake",
+        "curl",
+        "fuzzel",
+        "rsync",
+        "wget",
+        "ripgrep",
+        "jq",
+        "npm",
+        "meson",
+        "typescript",
+        "gjs",
+        "xdg-user-dirs"
+      ],
+      "Description": "Illogical Impulse Basic Dependencies",
+      "FirstSubmitted": 1730330351,
+      "ID": 1572445,
+      "Keywords": [],
+      "LastModified": 1730330351,
+      "License": [
+        "None"
+      ],
+      "Maintainer": "ameerarsala",
+      "Name": "illogical-impulse-basic",
+      "NumVotes": 6,
+      "OutOfDate": 1770816111,
+      "PackageBase": "illogical-impulse-basic",
+      "PackageBaseID": 211421,
+      "Popularity": 1.103116,
+      "Submitter": "ameerarsala",
+      "URL": null,
+      "URLPath": "/cgit/aur.git/snapshot/illogical-impulse-basic.tar.gz",
+      "Version": "1.0-1"
+    },
+    {
+      "Depends": [
+        "adw-gtk-theme-git",
+        "breeze",
+        "breeze-plus",
+        "darkly-bin",
+        "eza",
+        "fish",
+        "fontconfig",
+        "kde-material-you-colors",
+        "kitty",
+        "matugen-bin",
+        "otf-space-grotesk",
+        "starship",
+        "ttf-gabarito-git",
+        "ttf-jetbrains-mono-nerd",
+        "ttf-material-symbols-variable-git",
+        "ttf-readex-pro",
+        "ttf-rubik-vf",
+        "ttf-twemoji"
+      ],
+      "Description": "Illogical Impulse Fonts and Theming Dependencies",
+      "FirstSubmitted": 1753575829,
+      "ID": 1789111,
+      "Keywords": [],
+      "LastModified": 1753575829,
+      "License": [
+        "None"
+      ],
+      "Maintainer": "ameerarsala",
+      "Name": "illogical-impulse-fonts-themes",
+      "NumVotes": 5,
+      "OutOfDate": 1768926482,
+      "PackageBase": "illogical-impulse-fonts-themes",
+      "PackageBaseID": 220608,
+      "Popularity": 1.10291,
+      "Submitter": "ameerarsala",
+      "URL": null,
+      "URLPath": "/cgit/aur.git/snapshot/illogical-impulse-fonts-themes.tar.gz",
+      "Version": "1.0-1"
+    },
+    {
+      "Depends": [
+        "tinyxml2",
+        "gtkmm3",
+        "gtksourceviewmm",
+        "cairomm"
+      ],
+      "Description": "MicroTeX for illogical-impulse dotfiles.",
+      "FirstSubmitted": 1730325237,
+      "ID": 1647329,
+      "Keywords": [],
+      "LastModified": 1738628616,
+      "License": [
+        "MIT"
+      ],
+      "Maintainer": "ameerarsala",
+      "MakeDepends": [
+        "git",
+        "cmake"
+      ],
+      "Name": "illogical-impulse-microtex-git",
+      "NumVotes": 6,
+      "OutOfDate": null,
+      "PackageBase": "illogical-impulse-microtex-git",
+      "PackageBaseID": 211417,
+      "Popularity": 1.103117,
+      "Submitter": "ameerarsala",
+      "URL": "https://github.com/NanoMichael/MicroTeX",
+      "URLPath": "/cgit/aur.git/snapshot/illogical-impulse-microtex-git.tar.gz",
+      "Version": "r494.0e3707f-1"
+    },
+    {
+      "Depends": [
+        "python-build",
+        "python-pillow",
+        "python-setuptools-scm",
+        "python-wheel",
+        "clang",
+        "uv",
+        "gtk4",
+        "libadwaita",
+        "libsoup3",
+        "libportal-gtk4",
+        "gobject-introspection",
+        "sassc",
+        "python-opencv"
+      ],
+      "Description": "Illogical Impulse Python Dependencies",
+      "FirstSubmitted": 1730325795,
+      "ID": 1789132,
+      "Keywords": [],
+      "LastModified": 1753583691,
+      "License": [
+        "None"
+      ],
+      "Maintainer": "ameerarsala",
+      "Name": "illogical-impulse-python",
+      "NumVotes": 6,
+      "OutOfDate": 1770816156,
+      "PackageBase": "illogical-impulse-python",
+      "PackageBaseID": 211419,
+      "Popularity": 1.103117,
+      "Submitter": "ameerarsala",
+      "URL": null,
+      "URLPath": "/cgit/aur.git/snapshot/illogical-impulse-python.tar.gz",
+      "Version": "1.0-1"
+    },
+    {
+      "Depends": [
+        "kdialog",
+        "qt6-5compat",
+        "qt6-avif-image-plugin",
+        "qt6-base",
+        "qt6-declarative",
+        "qt6-imageformats",
+        "qt6-multimedia",
+        "qt6-positioning",
+        "qt6-quicktimeline",
+        "qt6-sensors",
+        "qt6-svg",
+        "qt6-tools",
+        "qt6-translations",
+        "qt6-virtualkeyboard",
+        "qt6-wayland",
+        "syntax-highlighting",
+        "upower",
+        "wtype",
+        "ydotool"
+      ],
+      "Description": "Illogical Impulse GTK/Qt Dependencies",
+      "FirstSubmitted": 1753575975,
+      "ID": 1789113,
+      "Keywords": [],
+      "LastModified": 1753575975,
+      "License": [
+        "None"
+      ],
+      "Maintainer": "ameerarsala",
+      "Name": "illogical-impulse-toolkit",
+      "NumVotes": 5,
+      "OutOfDate": 1769597273,
+      "PackageBase": "illogical-impulse-toolkit",
+      "PackageBaseID": 220609,
+      "Popularity": 1.102911,
+      "Submitter": "ameerarsala",
+      "URL": null,
+      "URLPath": "/cgit/aur.git/snapshot/illogical-impulse-toolkit.tar.gz",
+      "Version": "1.0-1"
+    },
+    {
+      "Conflicts": [
+        "limine-entry-tool"
+      ],
+      "Depends": [
+        "bash",
+        "grep",
+        "tar",
+        "limine",
+        "mkinitcpio",
+        "efibootmgr"
+      ],
+      "Description": "Install kernels for the Limine bootloader.",
+      "FirstSubmitted": 1744373694,
+      "ID": 2056896,
+      "Keywords": [
+        "boot",
+        "hook",
+        "initramfs",
+        "initrd",
+        "kernel",
+        "limine",
+        "mkinitcpio"
+      ],
+      "LastModified": 1777446650,
+      "License": [
+        "GPL3"
+      ],
+      "Maintainer": "Zesko",
+      "MakeDepends": [
+        "git",
+        "gradle"
+      ],
+      "Name": "limine-mkinitcpio-hook",
+      "NumVotes": 11,
+      "OptDepends": [
+        "kernel-modules-hook",
+        "sbctl",
+        "journalctl-desktop-notification"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "limine-mkinitcpio-hook",
+      "PackageBaseID": 217254,
+      "Popularity": 2.466342,
+      "Provides": [
+        "limine-entry-tool"
+      ],
+      "Submitter": "Zesko",
+      "URL": "https://gitlab.com/Zesko/limine-entry-tool",
+      "URLPath": "/cgit/aur.git/snapshot/limine-mkinitcpio-hook.tar.gz",
+      "Version": "1.36.0-1"
+    },
+    {
+      "Conflicts": [
+        "limine-snapper-sync-git"
+      ],
+      "Depends": [
+        "bash",
+        "limine",
+        "snapper",
+        "btrfs-progs",
+        "libnotify"
+      ],
+      "Description": "Automatically syncs Limine snapshot entries with Snapper snapshots.",
+      "FirstSubmitted": 1724141096,
+      "ID": 2061839,
+      "Keywords": [
+        "boot",
+        "btrfs",
+        "limine",
+        "restore",
+        "rollback",
+        "snapper",
+        "snapshot"
+      ],
+      "LastModified": 1777734943,
+      "License": [
+        "GPL3"
+      ],
+      "Maintainer": "Zesko",
+      "MakeDepends": [
+        "git",
+        "gradle"
+      ],
+      "Name": "limine-snapper-sync",
+      "NumVotes": 9,
+      "OptDepends": [
+        "limine-dracut-support",
+        "limine-mkinitcpio-hook",
+        "inotify-tools",
+        "rsync",
+        "b3sum",
+        "xxhash"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "limine-snapper-sync",
+      "PackageBaseID": 209111,
+      "Popularity": 2.019651,
+      "Submitter": "Zesko",
+      "URL": "https://gitlab.com/Zesko/limine-snapper-sync",
+      "URLPath": "/cgit/aur.git/snapshot/limine-snapper-sync.tar.gz",
+      "Version": "1.28.0-1"
+    },
+    {
+      "CoMaintainers": [
+        "sir_lucjan"
+      ],
+      "Depends": [
+        "coreutils",
+        "kmod",
+        "initramfs"
+      ],
+      "Description": "The Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements. kernel and modules",
+      "FirstSubmitted": 1634063473,
+      "ID": 2073228,
+      "Keywords": [
+        "cachyos",
+        "kernel",
+        "linux"
+      ],
+      "LastModified": 1778508841,
+      "License": [
+        "GPL-2.0-only"
+      ],
+      "Maintainer": "ptr1337",
+      "MakeDepends": [
+        "bc",
+        "binutils",
+        "cpio",
+        "gettext",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "perl",
+        "python",
+        "rust",
+        "rust-bindgen",
+        "rust-src",
+        "tar",
+        "xxhash",
+        "xz",
+        "zlib",
+        "zstd",
+        "clang",
+        "llvm",
+        "lld"
+      ],
+      "Name": "linux-cachyos",
+      "NumVotes": 47,
+      "OptDepends": [
+        "wireless-regdb",
+        "linux-firmware",
+        "modprobed-db",
+        "scx-scheds"
+      ],
+      "OutOfDate": 1778783805,
+      "PackageBase": "linux-cachyos",
+      "PackageBaseID": 171935,
+      "Popularity": 3.431709,
+      "Provides": [
+        "VIRTUALBOX-GUEST-MODULES",
+        "WIREGUARD-MODULE",
+        "KSMBD-MODULE",
+        "V4L2LOOPBACK-MODULE",
+        "NTSYNC-MODULE",
+        "VHBA-MODULE",
+        "ADIOS-MODULE",
+        "linux-cachyos-lto=7.0.6-1"
+      ],
+      "Replaces": [
+        "linux-cachyos-lto"
+      ],
+      "Submitter": "ptr1337",
+      "URL": "https://github.com/CachyOS/linux-cachyos",
+      "URLPath": "/cgit/aur.git/snapshot/linux-cachyos.tar.gz",
+      "Version": "7.0.6-1"
+    },
+    {
+      "CoMaintainers": [
+        "sir_lucjan"
+      ],
+      "Depends": [
+        "binutils",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "xxhash",
+        "zlib",
+        "zstd",
+        "linux-cachyos",
+        "clang",
+        "llvm",
+        "lld"
+      ],
+      "Description": "Headers and scripts for building modules for the Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements. kernel",
+      "FirstSubmitted": 1634063473,
+      "ID": 2073229,
+      "Keywords": [
+        "cachyos",
+        "kernel",
+        "linux"
+      ],
+      "LastModified": 1778508841,
+      "License": [
+        "GPL-2.0-only"
+      ],
+      "Maintainer": "ptr1337",
+      "MakeDepends": [
+        "bc",
+        "binutils",
+        "cpio",
+        "gettext",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "perl",
+        "python",
+        "rust",
+        "rust-bindgen",
+        "rust-src",
+        "tar",
+        "xxhash",
+        "xz",
+        "zlib",
+        "zstd",
+        "clang",
+        "llvm",
+        "lld"
+      ],
+      "Name": "linux-cachyos-headers",
+      "NumVotes": 47,
+      "OutOfDate": 1778783805,
+      "PackageBase": "linux-cachyos",
+      "PackageBaseID": 171935,
+      "Popularity": 3.431709,
+      "Provides": [
+        "LINUX-HEADERS",
+        "linux-cachyos-lto-headers=7.0.6-1"
+      ],
+      "Replaces": [
+        "linux-cachyos-lto-headers"
+      ],
+      "Submitter": "ptr1337",
+      "URL": "https://github.com/CachyOS/linux-cachyos",
+      "URLPath": "/cgit/aur.git/snapshot/linux-cachyos-headers.tar.gz",
+      "Version": "7.0.6-1"
+    },
+    {
+      "CoMaintainers": [
+        "sir_lucjan"
+      ],
+      "Depends": [
+        "coreutils",
+        "kmod",
+        "initramfs"
+      ],
+      "Description": "The Linux BORE + Cachy Sauce Kernel by CachyOS with other patches and improvements - Long Term Service kernel and modules",
+      "FirstSubmitted": 1676899498,
+      "ID": 2073239,
+      "Keywords": [],
+      "LastModified": 1778509000,
+      "License": [
+        "GPL-2.0-only"
+      ],
+      "Maintainer": "ptr1337",
+      "MakeDepends": [
+        "bc",
+        "binutils",
+        "cpio",
+        "gettext",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "perl",
+        "python",
+        "rust",
+        "rust-bindgen",
+        "rust-src",
+        "tar",
+        "xxhash",
+        "xz",
+        "zlib",
+        "zstd"
+      ],
+      "Name": "linux-cachyos-lts",
+      "NumVotes": 6,
+      "OptDepends": [
+        "wireless-regdb",
+        "linux-firmware",
+        "modprobed-db",
+        "scx-scheds"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "linux-cachyos-lts",
+      "PackageBaseID": 190606,
+      "Popularity": 1.478945,
+      "Provides": [
+        "VIRTUALBOX-GUEST-MODULES",
+        "WIREGUARD-MODULE",
+        "KSMBD-MODULE",
+        "V4L2LOOPBACK-MODULE",
+        "NTSYNC-MODULE",
+        "VHBA-MODULE",
+        "ADIOS-MODULE"
+      ],
+      "Submitter": "ptr1337",
+      "URL": "https://github.com/CachyOS/linux-cachyos",
+      "URLPath": "/cgit/aur.git/snapshot/linux-cachyos-lts.tar.gz",
+      "Version": "6.18.29-1"
+    },
+    {
+      "CoMaintainers": [
+        "sir_lucjan"
+      ],
+      "Depends": [
+        "binutils",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "xxhash",
+        "zlib",
+        "zstd",
+        "linux-cachyos-lts"
+      ],
+      "Description": "Headers and scripts for building modules for the Linux BORE + Cachy Sauce Kernel by CachyOS with other patches and improvements - Long Term Service kernel",
+      "FirstSubmitted": 1676899498,
+      "ID": 2073240,
+      "Keywords": [],
+      "LastModified": 1778509000,
+      "License": [
+        "GPL-2.0-only"
+      ],
+      "Maintainer": "ptr1337",
+      "MakeDepends": [
+        "bc",
+        "binutils",
+        "cpio",
+        "gettext",
+        "glibc",
+        "libelf",
+        "libgcc",
+        "openssl",
+        "pahole",
+        "perl",
+        "python",
+        "rust",
+        "rust-bindgen",
+        "rust-src",
+        "tar",
+        "xxhash",
+        "xz",
+        "zlib",
+        "zstd"
+      ],
+      "Name": "linux-cachyos-lts-headers",
+      "NumVotes": 6,
+      "OutOfDate": null,
+      "PackageBase": "linux-cachyos-lts",
+      "PackageBaseID": 190606,
+      "Popularity": 1.478945,
+      "Provides": [
+        "LINUX-HEADERS"
+      ],
+      "Submitter": "ptr1337",
+      "URL": "https://github.com/CachyOS/linux-cachyos",
+      "URLPath": "/cgit/aur.git/snapshot/linux-cachyos-lts-headers.tar.gz",
+      "Version": "6.18.29-1"
+    },
+    {
+      "Depends": [
+        "libayatana-appindicator"
+      ],
+      "Description": "An open source cross-platform alternative to AirDrop",
+      "FirstSubmitted": 1680267508,
+      "ID": 1970634,
+      "Keywords": [],
+      "LastModified": 1771087251,
+      "License": [
+        "Apache-2.0"
+      ],
+      "Maintainer": "xiota",
+      "MakeDepends": [
+        "clang",
+        "cmake",
+        "fvm",
+        "git",
+        "lld",
+        "llvm",
+        "ninja",
+        "patchelf",
+        "rustup"
+      ],
+      "Name": "localsend",
+      "NumVotes": 42,
+      "OutOfDate": null,
+      "PackageBase": "localsend",
+      "PackageBaseID": 192110,
+      "Popularity": 3.435918,
+      "Submitter": "patlefort",
+      "URL": "https://github.com/localsend/localsend",
+      "URLPath": "/cgit/aur.git/snapshot/localsend.tar.gz",
+      "Version": "1.17.0-3"
+    },
+    {
+      "Conflicts": [
+        "pacsea",
+        "pacsea-git"
+      ],
+      "Depends": [
+        "pacman",
+        "curl",
+        "bash",
+        "sudo",
+        "coreutils",
+        "grep",
+        "xdg-utils"
+      ],
+      "Description": "Fast TUI for searching, inspecting, and queueing pacman/AUR packages written in Rust (binary version)",
+      "FirstSubmitted": 1759428378,
+      "ID": 2042711,
+      "Keywords": [
+        "aur,",
+        "package-manager,",
+        "pacman,",
+        "paru,",
+        "queue-install",
+        "rust,",
+        "tui,",
+        "unified-search,",
+        "yay,"
+      ],
+      "LastModified": 1776447878,
+      "License": [
+        "MIT"
+      ],
+      "Maintainer": "Firstpick",
+      "Name": "pacsea-bin",
+      "NumVotes": 5,
+      "OptDepends": [
+        "paru",
+        "yay",
+        "wl-clipboard",
+        "xclip",
+        "reflector",
+        "pacman-mirrors",
+        "rate-mirrors",
+        "alacritty",
+        "kitty",
+        "ghostty",
+        "xterm",
+        "gnome-terminal",
+        "konsole",
+        "xfce4-terminal",
+        "tilix",
+        "mate-terminal",
+        "neovim",
+        "vim",
+        "emacs",
+        "helix",
+        "nano",
+        "klipper",
+        "clamav",
+        "trivy",
+        "semgrep-bin",
+        "shellcheck",
+        "downgrade",
+        "pacman-contrib"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "pacsea-bin",
+      "PackageBaseID": 223019,
+      "Popularity": 1.614486,
+      "Provides": [
+        "pacsea=0.8.2"
+      ],
+      "Submitter": "Firstpick",
+      "URL": "https://github.com/Firstp1ck/Pacsea",
+      "URLPath": "/cgit/aur.git/snapshot/pacsea-bin.tar.gz",
+      "Version": "0.8.2-1"
+    },
+    {
+      "Depends": [
+        "pacman"
+      ],
+      "Description": "A terminal user interface for searching and installing Arch Linux packages",
+      "FirstSubmitted": 1648375227,
+      "ID": 1912538,
+      "Keywords": [
+        "alpm",
+        "aur",
+        "go",
+        "package",
+        "pacman",
+        "search",
+        "yay"
+      ],
+      "LastModified": 1765883803,
+      "License": [
+        "MIT"
+      ],
+      "Maintainer": "moson",
+      "MakeDepends": [
+        "go"
+      ],
+      "Name": "pacseek",
+      "NumVotes": 49,
+      "OptDepends": [
+        "xdg-utils",
+        "fakeroot"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "pacseek",
+      "PackageBaseID": 177330,
+      "Popularity": 1.548651,
+      "Submitter": "moson",
+      "URL": "https://github.com/moson-mo/pacseek",
+      "URLPath": "/cgit/aur.git/snapshot/pacseek.tar.gz",
+      "Version": "1.8.6-1"
+    },
+    {
+      "Depends": [
+        "git",
+        "pacman",
+        "libalpm.so>=14"
+      ],
+      "Description": "Feature packed AUR helper",
+      "FirstSubmitted": 1603068230,
+      "ID": 1908988,
+      "Keywords": [
+        "AUR",
+        "helper",
+        "pacman",
+        "rust",
+        "wrapper",
+        "yay"
+      ],
+      "LastModified": 1765515783,
+      "License": [
+        "GPL-3.0-or-later"
+      ],
+      "Maintainer": "Morganamilo",
+      "MakeDepends": [
+        "cargo"
+      ],
+      "Name": "paru",
+      "NumVotes": 1191,
+      "OptDepends": [
+        "bat",
+        "devtools"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "paru",
+      "PackageBaseID": 158891,
+      "Popularity": 32.545889,
+      "Submitter": "Morganamilo",
+      "URL": "https://github.com/morganamilo/paru",
+      "URLPath": "/cgit/aur.git/snapshot/paru.tar.gz",
+      "Version": "2.1.0-2"
+    },
+    {
+      "CoMaintainers": [
+        "caroberrie"
+      ],
+      "Conflicts": [
+        "shelly-git",
+        "shelly-bin"
+      ],
+      "Depends": [
+        "pacman",
+        "gtk4",
+        "glib2",
+        "sudo",
+        "tar",
+        "bash",
+        "git",
+        "hicolor-icon-theme",
+        "dbus",
+        "glibc",
+        "libarchive",
+        "dconf",
+        "gnupg"
+      ],
+      "Description": "Shelly: A Modern Arch Package Manager",
+      "FirstSubmitted": 1770153740,
+      "ID": 2071344,
+      "Keywords": [
+        "aur",
+        "dotnet",
+        "flatpak",
+        "libalpm",
+        "manager",
+        "package",
+        "packagemanager",
+        "pkg,"
+      ],
+      "LastModified": 1778376139,
+      "License": [
+        "GPL-3.0-only"
+      ],
+      "Maintainer": "ZoeyErinBauer",
+      "MakeDepends": [
+        "dotnet-sdk-10.0",
+        "clang"
+      ],
+      "Name": "shelly",
+      "NumVotes": 7,
+      "OptDepends": [
+        "flatpak",
+        "archlinux-appstream-data",
+        "fish"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "shelly",
+      "PackageBaseID": 228563,
+      "Popularity": 3.956796,
+      "Provides": [
+        "shelly"
+      ],
+      "Submitter": "ZoeyErinBauer",
+      "URL": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+      "URLPath": "/cgit/aur.git/snapshot/shelly.tar.gz",
+      "Version": "2.2.4.1-1"
+    },
+    {
+      "CoMaintainers": [
+        "xiota"
+      ],
+      "Depends": [
+        "alsa-lib",
+        "gtk3",
+        "nss"
+      ],
+      "Description": "A standalone Electron-based Discord app with Vencord & improved Linux support",
+      "FirstSubmitted": 1705392356,
+      "ID": 1968294,
+      "Keywords": [
+        "discord",
+        "vencord",
+        "vesktop"
+      ],
+      "LastModified": 1770881188,
+      "License": [
+        "GPL-3.0-only"
+      ],
+      "Maintainer": "Edu4rdSHL",
+      "MakeDepends": [
+        "pnpm",
+        "npm",
+        "nodejs"
+      ],
+      "Name": "vesktop",
+      "NumVotes": 88,
+      "OptDepends": [
+        "libnotify",
+        "xdg-utils"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "vesktop",
+      "PackageBaseID": 201582,
+      "Popularity": 6.802406,
+      "Submitter": "picokan",
+      "URL": "https://github.com/Vencord/Vesktop",
+      "URLPath": "/cgit/aur.git/snapshot/vesktop.tar.gz",
+      "Version": "1.6.5-1"
+    },
+    {
+      "Conflicts": [
+        "code"
+      ],
+      "Depends": [
+        "libxkbfile",
+        "gnupg",
+        "gtk3",
+        "libsecret",
+        "nss",
+        "gcc-libs",
+        "libnotify",
+        "libxss",
+        "glibc",
+        "lsof",
+        "shared-mime-info",
+        "xdg-utils",
+        "alsa-lib"
+      ],
+      "Description": "Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)",
+      "FirstSubmitted": 1513624448,
+      "ID": 2075687,
+      "Keywords": [],
+      "LastModified": 1778664859,
+      "License": [
+        "custom: commercial"
+      ],
+      "Maintainer": "dcelasun",
+      "Name": "visual-studio-code-bin",
+      "NumVotes": 1662,
+      "OptDepends": [
+        "glib2",
+        "libdbusmenu-glib",
+        "org.freedesktop.secrets",
+        "icu69"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "visual-studio-code-bin",
+      "PackageBaseID": 128020,
+      "Popularity": 31.442861,
+      "Provides": [
+        "code",
+        "vscode"
+      ],
+      "Submitter": "dcelasun",
+      "URL": "https://code.visualstudio.com/",
+      "URLPath": "/cgit/aur.git/snapshot/visual-studio-code-bin.tar.gz",
+      "Version": "1.120.0-1"
+    },
+    {
+      "CheckDepends": [
+        "bats"
+      ],
+      "Description": "Proposed standard to launching desktop apps with Terminal=true",
+      "FirstSubmitted": 1733236108,
+      "ID": 1891965,
+      "Keywords": [],
+      "LastModified": 1763971870,
+      "License": [
+        "GPL-3.0-or-later"
+      ],
+      "Maintainer": "VannTen",
+      "MakeDepends": [
+        "scdoc"
+      ],
+      "Name": "xdg-terminal-exec",
+      "NumVotes": 22,
+      "OutOfDate": 1777283163,
+      "PackageBase": "xdg-terminal-exec",
+      "PackageBaseID": 212630,
+      "Popularity": 4.042613,
+      "Submitter": "VannTen",
+      "URL": "https://gitlab.freedesktop.org/Vladimir-csp/xdg-terminal-exec",
+      "URLPath": "/cgit/aur.git/snapshot/xdg-terminal-exec.tar.gz",
+      "Version": "0.14.0-1"
+    },
+    {
+      "Conflicts": [
+        "yay"
+      ],
+      "Depends": [
+        "pacman>6.1",
+        "git"
+      ],
+      "Description": "Yet another yogurt. Pacman wrapper and AUR helper written in go. Pre-compiled.",
+      "FirstSubmitted": 1480777574,
+      "ID": 1911142,
+      "Keywords": [
+        "AUR",
+        "go",
+        "helper",
+        "pacman",
+        "wrapper"
+      ],
+      "LastModified": 1765742511,
+      "License": [
+        "GPL-3.0-or-later"
+      ],
+      "Maintainer": "jguer",
+      "Name": "yay-bin",
+      "NumVotes": 365,
+      "OptDepends": [
+        "sudo",
+        "doas"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "yay-bin",
+      "PackageBaseID": 117489,
+      "Popularity": 13.022827,
+      "Provides": [
+        "yay"
+      ],
+      "Submitter": "jguer",
+      "URL": "https://github.com/Jguer/yay",
+      "URLPath": "/cgit/aur.git/snapshot/yay-bin.tar.gz",
+      "Version": "12.5.7-1"
+    },
+    {
+      "CoMaintainers": [
+        "NextWorks"
+      ],
+      "Conflicts": [
+        "zen-browser"
+      ],
+      "Depends": [
+        "gtk3",
+        "libxt",
+        "mime-types",
+        "dbus-glib",
+        "nss",
+        "ttf-font",
+        "systemd",
+        "ffmpeg4.4"
+      ],
+      "Description": "Performance oriented Firefox-based web browser",
+      "FirstSubmitted": 1722341490,
+      "ID": 2075951,
+      "Keywords": [],
+      "LastModified": 1778689294,
+      "License": [
+        "MPL-2.0"
+      ],
+      "Maintainer": "Larvey",
+      "Name": "zen-browser-bin",
+      "NumVotes": 302,
+      "OptDepends": [
+        "networkmanager",
+        "libnotify",
+        "pulse-native-provider",
+        "speech-dispatcher",
+        "hunspell-en_US"
+      ],
+      "OutOfDate": null,
+      "PackageBase": "zen-browser-bin",
+      "PackageBaseID": 208536,
+      "Popularity": 21.409382,
+      "Provides": [
+        "zen-browser=1.19.12b"
+      ],
+      "Submitter": "ptr1337",
+      "URL": "https://github.com/zen-browser/desktop",
+      "URLPath": "/cgit/aur.git/snapshot/zen-browser-bin.tar.gz",
+      "Version": "1.19.12b-1"
+    }
+  ],
+  "type": "multiinfo",
+  "version": 5
+}

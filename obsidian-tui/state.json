@@ -1,0 +1,21 @@
+{
+  "vaults": {
+    "/home/and00pium/Documents/Obsidian/Narciss Vault/": {
+      "expanded_folders": [
+        "My Vault Sync",
+        "My Vault Sync/Gym 1",
+        "My Vault Sync/Gym 1/Sesiones"
+      ]
+    },
+    "/home/and00pium/Documents/Obsidian/Narciss Vault": {
+      "expanded_folders": [
+        "My Vault Sync",
+        "My Vault Sync/PROYECTOS",
+        "My Vault Sync/PROYECTOS/ERP-LOGISTICA",
+        "My Vault Sync/Programacion",
+        "My Vault Sync/Programacion/Terminal",
+        "My Vault Sync/Programacion/Terminal/Yazi"
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+[builtins.clipboard]
+name = "Clipboard"
+icon = ""
+hidden = false

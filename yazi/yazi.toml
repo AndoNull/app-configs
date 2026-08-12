@@ -1,0 +1,143 @@
+[opener]
+# IMPORTANTE: nvim necesita 'block = true' porque vive en la terminal
+nvim = [
+    { run = 'nvim "$@"', block = true, desc = "Neovim" }
+]
+
+pdf = [
+    { run = 'zathura "$@"', orphan = true, desc = "Zathura" }
+]
+
+view_image = [
+    { run = 'nohup qview "$@" >/dev/null 2>&1 &', orphan = true, desc = "Abrir con qView" }
+]
+
+play = [
+    { run = 'mpv "$@"', orphan = true, desc = "MPV" }
+]
+
+[open]
+rules = [
+    { mime = "text/*", use = "nvim" },
+    { mime = "application/json", use = "nvim" },
+    { mime = "application/toml", use = "nvim" },
+    { mime = "application/x-shellscript", use = "nvim" },
+    { mime = "*.pdf", use = "pdf" },           # <-- esto también está mal
+    { mime = "application/pdf", use = "pdf" },
+    { mime = "image/*", use = "view_image" },
+    { mime = "{video,audio}/*", use = "play" },
+]  
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*/"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "mime"
+url   = "local://*"
+run   = "mime-ext.local"
+prio  = "high"
+group = "mime"
+
+[[plugin.prepend_fetchers]]
+id    = "mime"
+url   = "remote://*"
+run   = "mime-ext.remote"
+prio  = "high"
+group = "mime"
+
+[[plugin.prepend_previewers]]
+url = "*.csv"
+run = "rich-preview"
+
+[[plugin.prepend_previewers]]
+url = "*.md"
+run = "rich-preview"
+
+[[plugin.prepend_previewers]]
+url = "*.rst"
+run = "rich-preview"
+
+[[plugin.prepend_previewers]]
+url = "*.ipynb"
+run = "rich-preview"
+
+[[plugin.prepend_previewers]]
+url = "*.json"
+run = "rich-preview"
+
+[[plugin.prepend_previewers]]
+mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}"
+run  = "ouch"
+
+[[plugin.prepend_previewers]]
+mime = "*executable*"
+run  = "exiftool"
+
+[[plugin.prepend_preloaders]]
+mime = "{audio,video,image}/*"
+run  = "mediainfo"
+
+[[plugin.prepend_preloaders]]
+mime = "application/subrip"
+run  = "mediainfo"
+
+[[plugin.prepend_preloaders]]
+mime = "{image}/*"
+run  = "mediainfo --no-metadata"
+
+[[plugin.prepend_preloaders]]
+mime = "{video}/*"
+run  = "mediainfo --no-preview"
+
+[[plugin.prepend_previewers]]
+mime = "{audio,video,image}/*"
+run  = "mediainfo"
+
+[[plugin.prepend_previewers]]
+mime = "application/subrip"
+run  = "mediainfo"
+
+[[plugin.prepend_previewers]]
+mime = "{image}/*"
+run  = "mediainfo --no-metadata"
+
+[[plugin.prepend_previewers]]
+mime = "{video}/*"
+run  = "mediainfo --no-preview"
+
+[tasks]
+image_alloc = 1073741824
+
+
+[[plugin.prepend_fetchers]]
+id    = "simple-tag"
+url   = "*"
+run   = "simple-tag"
+group = "simple-tag"
+
+[[plugin.prepend_fetchers]]
+id    = "simple-tag"
+url   = "*/"
+run   = "simple-tag"
+group = "simple-tag"
+
+[mgr]
+ratio = [1, 3, 4]
+sort_by = "natural"
+sort_dir_first = true
+show_hidden = false
+show_symlink = true
+
+[preview]
+tab_size = 2
+max_width = 1000
+max_height = 1000

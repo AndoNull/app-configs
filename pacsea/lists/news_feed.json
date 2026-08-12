@@ -1,0 +1,1140 @@
+[
+  {
+    "id": "pkg-update:aur:visual-studio-code-bin:1.120.0-1",
+    "date": "2026-05-13",
+    "title": "visual-studio-code-bin updated to 1.120.0-1",
+    "summary": "1.120.0-1",
+    "url": "https://aur.archlinux.org/packages/visual-studio-code-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "visual-studio-code-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:zen-browser-bin:1.19.12b-1",
+    "date": "2026-05-13",
+    "title": "zen-browser-bin updated to 1.19.12b-1",
+    "summary": "1.19.12b-1",
+    "url": "https://aur.archlinux.org/packages/zen-browser-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "zen-browser-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos:7.0.6-1",
+    "date": "2026-05-11",
+    "title": "linux-cachyos updated to 7.0.6-1",
+    "summary": "7.0.6-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-headers:7.0.6-1",
+    "date": "2026-05-11",
+    "title": "linux-cachyos-headers updated to 7.0.6-1",
+    "summary": "7.0.6-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-headers",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-headers"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-lts:6.18.29-1",
+    "date": "2026-05-11",
+    "title": "linux-cachyos-lts updated to 6.18.29-1",
+    "summary": "6.18.29-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-lts"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:linux-cachyos-lts-headers:6.18.29-1",
+    "date": "2026-05-11",
+    "title": "linux-cachyos-lts-headers updated to 6.18.29-1",
+    "summary": "6.18.29-1",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos-lts-headers",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "linux-cachyos-lts-headers"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:shelly:2.2.4.1-1",
+    "date": "2026-05-10",
+    "title": "shelly updated to 2.2.4.1-1",
+    "summary": "2.2.4.1-1",
+    "url": "https://aur.archlinux.org/packages/shelly",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "shelly"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-snapper-sync:comment-1070734",
+    "date": "2026-05-10",
+    "title": "New AUR comment on limine-snapper-sync",
+    "summary": "@retractant0916\nThanks for the report. Fixed in [commit 15fb2106](https://gitlab.com/Zesko/limine-snapper-sync/-/commit/15fb2106d553ba458c7ab9fde576ccdd118dcf1c)",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync#comment-1070734",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-snapper-sync:comment-1070721",
+    "date": "2026-05-10",
+    "title": "New AUR comment on limine-snapper-sync",
+    "summary": "limine-snapper-watcher won't clean up the pacman lock file if DBPath in /etc/pacman.conf is not the default.\nFrom /usr/bin/limine-snapper-watcher:",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync#comment-1070721",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:helium-browser-bin:0.12.1.1-1",
+    "date": "2026-05-06",
+    "title": "helium-browser-bin updated to 0.12.1.1-1",
+    "summary": "0.12.1.1-1",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:limine-snapper-sync:1.28.0-1",
+    "date": "2026-05-02",
+    "title": "limine-snapper-sync updated to 1.28.0-1",
+    "summary": "1.28.0-1",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:limine-mkinitcpio-hook:1.36.0-1",
+    "date": "2026-04-29",
+    "title": "limine-mkinitcpio-hook updated to 1.36.0-1",
+    "summary": "1.36.0-1",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1069048",
+    "date": "2026-04-28",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Knotrocket,\nDo you know which version is used by Helium when set to \"Use QT\" and why there are two .so libraries?\nI can confirm that Helium only requires `qt5-base` after reviewing…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1069048",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1069000",
+    "date": "2026-04-27",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Hey, I noticed that the `url` variable isn't really used in the source reference in the `PKGBUILD`, I think using the variable there is probably convenient, that way you only defin…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1069000",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1068946",
+    "date": "2026-04-27",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Before making changes, might I propose that we move the qt{5,6}-base to optdepends, while inviting any suggestions and discussion.\nSounds good to me! I commented here because in my…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1068946",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1068849",
+    "date": "2026-04-27",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Knotrocket,\nAfter review, I think adding `qt{5,6}-base` was an unnecessary addition on my part in strictly adhering to namcap results. As you pointed out, this seems like a depende…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1068849",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1068831",
+    "date": "2026-04-26",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "add qt5-base, qt6-base\nIs this necessary for those who stick with the default appearance settings or only change the colours?",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1068831",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1068566",
+    "date": "2026-04-24",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "arc-d3v,\nYes absolutely. I will update the dependencies in `0.11.4.1` per an audit with namcap. In short, this will involve the following changes to `depends` and `optdepends`:\nThe…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1068566",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1068542",
+    "date": "2026-04-24",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Is it possible to put udev as a dependency instead of explicit systemd?",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1068542",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1068436",
+    "date": "2026-04-23",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "@Zwyhmcn\nThe 580 driver in the AUR received a patch that should fix this.\nI have no experience with installing Cachyos and you should ask in their support channels with that.",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1068436",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1067870",
+    "date": "2026-04-18",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "It seems that linux-cachyos is incompatible with older 580 nvidia driver, as FirefistAce mentioned. I installed it, and DKMS failed as:\nAnd there's neither initramfs-linux-cachyos.…",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1067870",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:pacsea-bin:0.8.2-1",
+    "date": "2026-04-17",
+    "title": "pacsea-bin updated to 0.8.2-1",
+    "summary": "0.8.2-1",
+    "url": "https://aur.archlinux.org/packages/pacsea-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "pacsea-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1067544",
+    "date": "2026-04-16",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "Can't update from 6 to 7\nERROR: One or more files did not pass the validity check!\nEDIT: Looks like the checksum is for 7.0.0-1, but the package is 7.0.0-2 \nHTH",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1067544",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:gearlever:4.4.10-1",
+    "date": "2026-04-14",
+    "title": "gearlever updated to 4.4.10-1",
+    "summary": "4.4.10-1",
+    "url": "https://aur.archlinux.org/packages/gearlever",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1067327",
+    "date": "2026-04-14",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "This might fail to build the older 580 Nvidia drivers from the AUR. Might be an issue with my German locale. Just so that people are aware.\n`BTF [M] nvidia-uvm.ko\nawk: Kommandozeil…",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1067327",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1067220",
+    "date": "2026-04-13",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "@OzzyHelix, have to wait for Arch upstream",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1067220",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1067204",
+    "date": "2026-04-13",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "Linux 7 just entered mainline will there be an update to Linux 7 any time soon?",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1067204",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/kea-1303-6-update-requires-manual-intervention/",
+    "date": "2026-04-07",
+    "title": "kea &gt;= 1:3.0.3-6 update requires manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/kea-1303-6-update-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/iptables-now-defaults-to-the-nft-backend/",
+    "date": "2026-04-05",
+    "title": "iptables now defaults to the nft backend",
+    "summary": null,
+    "url": "https://archlinux.org/news/iptables-now-defaults-to-the-nft-backend/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1065392",
+    "date": "2026-03-31",
+    "title": "New AUR comment on gearlever",
+    "summary": "aplication not work :c\nerror: failed retrieving file 'python-pygments-2.19.2-3-any.pkg.tar.zst' from archlinux.cachyos.org : The requested URL returned error: 404\nerror: failed ret…",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1065392",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1064548",
+    "date": "2026-03-25",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "is compiling with bore patch not supported for this package?\nPKGBUILD modifies the sources array but keeps the b2sums same in preparation.",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1064548",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1062595",
+    "date": "2026-03-11",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "This is wrongly flagged out-of-date, 0.9.4.1 is marked as \"latest\" at the moment, 0.10.1.1 is still \"pre-release\".",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1062595",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1061696",
+    "date": "2026-03-02",
+    "title": "New AUR comment on gearlever",
+    "summary": "thanks @TuxDeluxe and @JamesMowery for your last comments. they helped me fix it too.",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1061696",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:linux-cachyos:comment-1061622",
+    "date": "2026-03-02",
+    "title": "New AUR comment on linux-cachyos",
+    "summary": "Can we add one extra option for building the package based on the config from a specific local path? Take linux-xanmod for example:",
+    "url": "https://aur.archlinux.org/packages/linux-cachyos#comment-1061622",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "linux-cachyos"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-1060790",
+    "date": "2026-02-23",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Error in recent git versions:\nThe executable isn't in `/usr/bin/`.\nI don't know if it's an PKGBUILD error or a developer error.",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-1060790",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1060602",
+    "date": "2026-02-22",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "@ryanrhughes\nthe build option `-march=compatibility` was already added to the gradle script like 3 weeks ago.\nDid that not fix it?",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1060602",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1060592",
+    "date": "2026-02-22",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "The current version has started throwing an error on older CPUs. Adding `export NATIVE_IMAGE_OPTIONS=\"-march=compatibility\"` before the gradle call in the `build` seems to resolve …",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1060592",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1060364",
+    "date": "2026-02-20",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Hello all,\nKindly note: this packaging tracks the stable branch of `helium-linux`. Before marking this package out of date, please check the latest version here: [https://github.co…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1060364",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:localsend:1.17.0-3",
+    "date": "2026-02-14",
+    "title": "localsend updated to 1.17.0-3",
+    "summary": "1.17.0-3",
+    "url": "https://aur.archlinux.org/packages/localsend",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "localsend"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:vesktop:1.6.5-1",
+    "date": "2026-02-12",
+    "title": "vesktop updated to 1.6.5-1",
+    "summary": "1.6.5-1",
+    "url": "https://aur.archlinux.org/packages/vesktop",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "vesktop"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1059056",
+    "date": "2026-02-10",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "@alwyn\nThe extra makedepends is needed because gradle and GraalVM can build a native binary, which lets us ship a standalone executable without requiring a JRE at runtime. \nHere ar…",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1059056",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1059054",
+    "date": "2026-02-10",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "Personally I'm not sure how much I like the idea of requiring the installation of an external dependency in my makedepends. Have the pros been considered against the cons for this?",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1059054",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1058216",
+    "date": "2026-02-03",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "Working great now, was able to drop my changes. The self contained make Java is very convenient. Thanks.",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1058216",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1057470",
+    "date": "2026-01-29",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "@jmp0\nCurrently, limine-mkinitcpio-hook-git already uses Gradle and GraalVM25 to build a native image. Feel free to try it out.\nNote: GraalVM is not available in the pacman repos, …",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1057470",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1057455",
+    "date": "2026-01-29",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "Thanks, I got it working with a PKGBUILD tweak and setting that config. However it seems like limine-snapper-sync's watcher daemon doesn't respect it properly, I had to add a syste…",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1057455",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1057384",
+    "date": "2026-01-29",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "@jmp0 \nThe PKGBUILD uses the fixed, stable, tested JDK 21 only for compiling, mainly for non-tech users who might otherwise fail to build due to a wrong or older Java version on th…",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1057384",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-mkinitcpio-hook:comment-1057350",
+    "date": "2026-01-28",
+    "title": "New AUR comment on limine-mkinitcpio-hook",
+    "summary": "The PKGBUILD hardcodes the Java path, so only some of the Java runtime deps actually work, and custom JAVA_HOME won't work.",
+    "url": "https://aur.archlinux.org/packages/limine-mkinitcpio-hook#comment-1057350",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-mkinitcpio-hook"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1057086",
+    "date": "2026-01-27",
+    "title": "New AUR comment on gearlever",
+    "summary": "@TuxDeluxe thank you that fixed it. Command (taken from the GitHub) in case any one else needs it:\n`paru -Sy --rebuild python-desktop-entry-lib python-ftputil`",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1057086",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1057058",
+    "date": "2026-01-27",
+    "title": "New AUR comment on gearlever",
+    "summary": "@JamesMowery I had to rebuild both python-desktop-entry-lib and python-ftputil to get it to work. Someone on cachyos on the gearlever github had that issue too and a rebuild looks …",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1057058",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1056546",
+    "date": "2026-01-23",
+    "title": "New AUR comment on gearlever",
+    "summary": "@fiftydinar I do indeed have that installed already.",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1056546",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1056226",
+    "date": "2026-01-20",
+    "title": "New AUR comment on gearlever",
+    "summary": "@JamesMowery python-desktop-entry-lib dependency is listed in PKGBUILD. Check if it's installed.",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1056226",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-1055895",
+    "date": "2026-01-18",
+    "title": "New AUR comment on gearlever",
+    "summary": "I've started getting these errors when running Gear Lever. Was working fine for the past few months.\nAny help is greatly appreciated!",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-1055895",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:helium-browser-bin:comment-1053753",
+    "date": "2026-01-02",
+    "title": "New AUR comment on helium-browser-bin",
+    "summary": "Since Helium 0.7.7.2 you will need Helium's PGP signature to verify the tarballs on install. This is a once off/once per system process.\nObtain Helium's signing key from [https://g…",
+    "url": "https://aur.archlinux.org/packages/helium-browser-bin#comment-1053753",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "helium-browser-bin"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/nvidia-590-driver-drops-pascal-support-main-packages-switch-to-open-kernel-modules/",
+    "date": "2025-12-20",
+    "title": "NVIDIA 590 driver drops Pascal and lower support; main packages switch to Open Kernel Modules",
+    "summary": null,
+    "url": "https://archlinux.org/news/nvidia-590-driver-drops-pascal-support-main-packages-switch-to-open-kernel-modules/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:pacseek:1.8.6-1",
+    "date": "2025-12-16",
+    "title": "pacseek updated to 1.8.6-1",
+    "summary": "1.8.6-1",
+    "url": "https://aur.archlinux.org/packages/pacseek",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "pacseek"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:yay-bin:12.5.7-1",
+    "date": "2025-12-14",
+    "title": "yay-bin updated to 12.5.7-1",
+    "summary": "12.5.7-1",
+    "url": "https://aur.archlinux.org/packages/yay-bin",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "yay-bin"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:paru:2.1.0-2",
+    "date": "2025-12-12",
+    "title": "paru updated to 2.1.0-2",
+    "summary": "2.1.0-2",
+    "url": "https://aur.archlinux.org/packages/paru",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "paru"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/net-packages-may-require-manual-intervention/",
+    "date": "2025-12-11",
+    "title": ".NET packages may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/net-packages-may-require-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:xdg-terminal-exec:0.14.0-1",
+    "date": "2025-11-24",
+    "title": "xdg-terminal-exec updated to 0.14.0-1",
+    "summary": "0.14.0-1",
+    "url": "https://aur.archlinux.org/packages/xdg-terminal-exec",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "xdg-terminal-exec"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-snapper-sync:comment-1046949",
+    "date": "2025-11-09",
+    "title": "New AUR comment on limine-snapper-sync",
+    "summary": "@Zesko\nThank you for clarification! I thought the file inside EFI should not be deleted. Everything works perfectly fine as before now.",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync#comment-1046949",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-snapper-sync:comment-1046837",
+    "date": "2025-11-08",
+    "title": "New AUR comment on limine-snapper-sync",
+    "summary": "@ghorshy\nPlease do not copy /boot/limine.conf to /boot/EFI/limine/limine.conf. This location has the highest priority and should not be managed by automation. But it is intended on…",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync#comment-1046837",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "aur-comment:limine-snapper-sync:comment-1046810",
+    "date": "2025-11-08",
+    "title": "New AUR comment on limine-snapper-sync",
+    "summary": "Since the last commit in Limine [https://github.com/limine-bootloader/limine/commit/e06cc37f685332e8c149b9e6fbccc6d7f61ed5e2](https://github.com/limine-bootloader/limine/commit/e06…",
+    "url": "https://aur.archlinux.org/packages/limine-snapper-sync#comment-1046810",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "limine-snapper-sync"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/waydroid-154-3-update-may-require-manual-intervention/",
+    "date": "2025-11-06",
+    "title": "waydroid &gt;= 1.5.4-3 update may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/waydroid-154-3-update-may-require-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/dovecot-24-requires-manual-intervention/",
+    "date": "2025-10-31",
+    "title": "dovecot &gt;= 2.4 requires manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/dovecot-24-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/recent-services-outages/",
+    "date": "2025-08-21",
+    "title": "Recent service outages",
+    "summary": null,
+    "url": "https://archlinux.org/news/recent-services-outages/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/zabbix-741-2-may-requires-manual-intervention/",
+    "date": "2025-08-04",
+    "title": "zabbix &gt;= 7.4.1-2 may require manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/zabbix-741-2-may-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:illogical-impulse-fonts-themes:1.0-1",
+    "date": "2025-07-27",
+    "title": "illogical-impulse-fonts-themes updated to 1.0-1",
+    "summary": "1.0-1",
+    "url": "https://aur.archlinux.org/packages/illogical-impulse-fonts-themes",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "illogical-impulse-fonts-themes"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:illogical-impulse-python:1.0-1",
+    "date": "2025-07-27",
+    "title": "illogical-impulse-python updated to 1.0-1",
+    "summary": "1.0-1",
+    "url": "https://aur.archlinux.org/packages/illogical-impulse-python",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "illogical-impulse-python"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:illogical-impulse-toolkit:1.0-1",
+    "date": "2025-07-27",
+    "title": "illogical-impulse-toolkit updated to 1.0-1",
+    "summary": "1.0-1",
+    "url": "https://aur.archlinux.org/packages/illogical-impulse-toolkit",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "illogical-impulse-toolkit"
+    ]
+  },
+  {
+    "id": "https://archlinux.org/news/linux-firmware-2025061312fe085f-5-upgrade-requires-manual-intervention/",
+    "date": "2025-06-21",
+    "title": "linux-firmware &gt;= 20250613.12fe085f-5 upgrade requires manual intervention",
+    "summary": null,
+    "url": "https://archlinux.org/news/linux-firmware-2025061312fe085f-5-upgrade-requires-manual-intervention/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://archlinux.org/news/plasma-640-will-need-manual-intervention-if-you-are-on-x11/",
+    "date": "2025-06-20",
+    "title": "Plasma 6.4.0 will need manual intervention if you are on X11",
+    "summary": null,
+    "url": "https://archlinux.org/news/plasma-640-will-need-manual-intervention-if-you-are-on-x11/",
+    "source": "ArchNews",
+    "severity": null,
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-6",
+    "date": "2025-06-12",
+    "title": "[ASA-202506-6] python-django: content spoofing",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-6",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-5",
+    "date": "2025-06-11",
+    "title": "[ASA-202506-5] konsole: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-5",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-4",
+    "date": "2025-06-07",
+    "title": "[ASA-202506-4] go: multiple issues",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-4",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-3",
+    "date": "2025-06-06",
+    "title": "[ASA-202506-3] samba: access restriction bypass",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-3",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-2",
+    "date": "2025-06-05",
+    "title": "[ASA-202506-2] curl: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-2",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202506-1",
+    "date": "2025-06-04",
+    "title": "[ASA-202506-1] roundcubemail: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202506-1",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-15",
+    "date": "2025-05-24",
+    "title": "[ASA-202505-15] ghostscript: information disclosure",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-15",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-14",
+    "date": "2025-05-21",
+    "title": "[ASA-202505-14] bind: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-14",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-13",
+    "date": "2025-05-20",
+    "title": "[ASA-202505-13] varnish: content spoofing",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-13",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-9",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-9] dropbear: arbitrary command execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-9",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-10",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-10] python-django: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-10",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-11",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-11] freetype2: arbitrary code execution",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-11",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-12",
+    "date": "2025-05-19",
+    "title": "[ASA-202505-12] go: directory traversal",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-12",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-7",
+    "date": "2025-05-18",
+    "title": "[ASA-202505-7] nodejs-lts-jod: denial of service",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-7",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "https://security.archlinux.org/ASA-202505-8",
+    "date": "2025-05-18",
+    "title": "[ASA-202505-8] nodejs-lts-iron: multiple issues",
+    "summary": null,
+    "url": "https://security.archlinux.org/ASA-202505-8",
+    "source": "SecurityAdvisory",
+    "severity": "Unknown",
+    "packages": []
+  },
+  {
+    "id": "pkg-update:aur:illogical-impulse-microtex-git:r494.0e3707f-1",
+    "date": "2025-02-04",
+    "title": "illogical-impulse-microtex-git updated to r494.0e3707f-1",
+    "summary": "r494.0e3707f-1",
+    "url": "https://aur.archlinux.org/packages/illogical-impulse-microtex-git",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "illogical-impulse-microtex-git"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:bpftune-git:r598.688b122-1",
+    "date": "2024-12-19",
+    "title": "bpftune-git updated to r598.688b122-1",
+    "summary": "r598.688b122-1",
+    "url": "https://aur.archlinux.org/packages/bpftune-git",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-999134",
+    "date": "2024-11-19",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Question to @svalo: how did you apply your patch? I tried to do it several times but every time it gives me rejects. Can you post your patch elsewhere?",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-999134",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-998975",
+    "date": "2024-11-18",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Source repository has moved, the new home is [https://github.com/oracle/bpftune](https://github.com/oracle/bpftune) the following patch includes also the other suggested changes",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-998975",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "pkg-update:aur:illogical-impulse-basic:1.0-1",
+    "date": "2024-10-30",
+    "title": "illogical-impulse-basic updated to 1.0-1",
+    "summary": "1.0-1",
+    "url": "https://aur.archlinux.org/packages/illogical-impulse-basic",
+    "source": "AurPackageUpdate",
+    "severity": null,
+    "packages": [
+      "illogical-impulse-basic"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-992084",
+    "date": "2024-09-23",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Built and installed successfully with the following changes:",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-992084",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-992082",
+    "date": "2024-09-23",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "The current build issue seems to be caused by the fact that the PKGBUILD file uses a `sed` command to replace occurrences of `/lib64` with `/lib`, but the current source code uses …",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-992082",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-991131",
+    "date": "2024-09-17",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Fails to install with:",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-991131",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:gearlever:comment-971441",
+    "date": "2024-05-06",
+    "title": "New AUR comment on gearlever",
+    "summary": "Gearlever targets flatpak usage so building it outside of flatpak can introduce bugs. Because of this, please make ABSOLUTELY sure any bug you experience is because of gearlever it…",
+    "url": "https://aur.archlinux.org/packages/gearlever#comment-971441",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "gearlever"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-935465",
+    "date": "2023-09-24",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "This repository has been moved from [https://github.com/oracle-samples](https://github.com/oracle-samples) to [https://github.com/oracle](https://github.com/oracle).",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-935465",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-926150",
+    "date": "2023-07-25",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "The dynamic linker searches in /usr/lib by default. No need for installing libbpftune.conf to /etc/ld.so.conf.d:    \n[ -d \"${pkgdir}/etc\" ] && rm -r \"$pkgdir\"/etc    \nSecondly, the…",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-926150",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-923296",
+    "date": "2023-07-08",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "Thanks for offering this package in the AUR. Some remarks:",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-923296",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  },
+  {
+    "id": "aur-comment:bpftune-git:comment-923162",
+    "date": "2023-07-07",
+    "title": "New AUR comment on bpftune-git",
+    "summary": "[https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/bpftune-git/PKGBUILD](https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/bpftune-git/PKGBUILD)\nThis one is (currentl…",
+    "url": "https://aur.archlinux.org/packages/bpftune-git#comment-923162",
+    "source": "AurComment",
+    "severity": null,
+    "packages": [
+      "bpftune-git"
+    ]
+  }
+]

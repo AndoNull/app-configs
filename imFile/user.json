@@ -1,0 +1,57 @@
+{
+	"auto-check-update": true,
+	"auto-hide-window": false,
+	"auto-sync-tracker": true,
+	"download-engine-dual-prompt-done": false,
+	"enable-upnp": true,
+	"engine-max-connection-per-server": 64,
+	"favorite-directories": [],
+	"go-aria2-skip-legacy-import": false,
+	"hide-app-menu": true,
+	"history-directories": [
+		"/home/and00pium/Downloads",
+		"/mnt/hdd/WE DONT TRUST YOU/toomanynights/ABOUT ME/LIKE THAT/DESCARGAS"
+	],
+	"keep-seeding": false,
+	"keep-window-state": false,
+	"last-check-update-time": 0,
+	"last-sync-tracker-time": 1779664239220,
+	"locale": "en-US",
+	"log-level": "warn",
+	"new-task-show-downloading": true,
+	"no-confirm-before-delete-task": false,
+	"open-at-login": false,
+	"protocols": {
+		"magnet": true,
+		"thunder": false,
+		"torrent": true,
+		"ed2k": false
+	},
+	"proxy": {
+		"enable": false,
+		"server": "",
+		"bypass": "",
+		"scope": [
+			"download",
+			"update-app",
+			"update-trackers"
+		]
+	},
+	"resume-all-when-app-launched": true,
+	"run-mode": 1,
+	"ssapi-search-base-url": "https://ssapi.imfile.org",
+	"ssapi-search-base-url-build-seeded": true,
+	"show-progress-bar": true,
+	"task-notification": true,
+	"task-complete-sound": true,
+	"theme": "dark",
+	"tracker-source": [
+		"https://cdn.jsdelivr.net/gh/ngosang/trackerslist/trackers_best_ip.txt",
+		"https://cdn.jsdelivr.net/gh/ngosang/trackerslist/trackers_best.txt"
+	],
+	"tray-theme": "light",
+	"tray-speedometer": false,
+	"update-channel": "latest",
+	"window-state": {},
+	"download-engine": "go-aria2"
+}

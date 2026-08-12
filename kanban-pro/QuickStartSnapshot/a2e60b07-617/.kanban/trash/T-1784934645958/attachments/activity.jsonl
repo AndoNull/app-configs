@@ -1,0 +1,7 @@
+{"timestamp":"2026-07-24T23:10:45.989Z","action":"created"}
+{"timestamp":"2026-07-24T23:10:50.721Z","action":"moved","field":"status","oldValue":"Backlog","newValue":"To Do"}
+{"timestamp":"2026-07-24T23:10:51.687Z","action":"moved","field":"status","oldValue":"To Do","newValue":"In Progress"}
+{"timestamp":"2026-07-24T23:10:52.570Z","action":"moved","field":"status","oldValue":"In Progress","newValue":"Done"}
+{"timestamp":"2026-07-24T23:10:52.570Z","action":"completed","field":"completedAt","newValue":"2026-07-24T23:10:52.570Z"}
+{"timestamp":"2026-07-24T23:10:53.987Z","action":"reopened","field":"completedAt","oldValue":"2026-07-24T23:10:52.570Z"}
+{"timestamp":"2026-07-24T23:10:53.987Z","action":"moved","field":"status","oldValue":"Done","newValue":"Backlog"}

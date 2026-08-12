@@ -1,0 +1,6 @@
+2026/08/06-20:43:00.495 e70e Reusing MANIFEST /home/and00pium/.config/SPlayer-Next/Partitions/main/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
+2026/08/06-20:43:00.495 e70e Recovering log #10
+2026/08/06-20:43:00.503 e70e Reusing old log /home/and00pium/.config/SPlayer-Next/Partitions/main/IndexedDB/file__0.indexeddb.leveldb/000010.log 
+2026/08/06-20:44:20.918 e721 Level-0 table #15: started
+2026/08/06-20:44:20.925 e721 Level-0 table #15: 4157608 bytes OK
+2026/08/06-20:44:20.929 e721 Delete type=0 #10
